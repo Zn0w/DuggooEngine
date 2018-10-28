@@ -3,7 +3,7 @@
 namespace Duggoo
 {
 	
-	// This function will replace Sanbox'sm game main function for now
+	// This function will replace Sandbox'sm game main function for now
 	__declspec(dllexport) void start();
 
 }
