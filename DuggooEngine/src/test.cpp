@@ -5,7 +5,7 @@
 namespace Duggoo
 {
 
-	void printWelcome()
+	void start()
 	{
 		std::cout << "Hello from Duggoo Engine!" << std::endl;
 	}

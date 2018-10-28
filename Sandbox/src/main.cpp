@@ -3,7 +3,7 @@
 namespace Duggoo
 {
 
-	__declspec(dllimport) void printWelcome();
+	__declspec(dllimport) void start();
 
 }
 
@@ -12,6 +12,6 @@ namespace Duggoo
 
 void main()
 {
-	Duggoo::printWelcome();
+	Duggoo::start();
 	system("pause");
 }
