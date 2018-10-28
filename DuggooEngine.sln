@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{579CA03D-245C-48AD-A2CB-D24B28222011}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DuggooEngine", "DuggooEngine\DuggooEngine.vcxproj", "{1934A2F7-DE0D-40A9-B6F0-688CB23E345F}"
 EndProject
 Global
@@ -21,6 +23,14 @@ Global
 		{1934A2F7-DE0D-40A9-B6F0-688CB23E345F}.Release|x64.Build.0 = Release|x64
 		{1934A2F7-DE0D-40A9-B6F0-688CB23E345F}.Release|x86.ActiveCfg = Release|Win32
 		{1934A2F7-DE0D-40A9-B6F0-688CB23E345F}.Release|x86.Build.0 = Release|Win32
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Debug|x64.ActiveCfg = Debug|x64
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Debug|x64.Build.0 = Debug|x64
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Debug|x86.ActiveCfg = Debug|Win32
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Debug|x86.Build.0 = Debug|Win32
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Release|x64.ActiveCfg = Release|x64
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Release|x64.Build.0 = Release|x64
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Release|x86.ActiveCfg = Release|Win32
+		{579CA03D-245C-48AD-A2CB-D24B28222011}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

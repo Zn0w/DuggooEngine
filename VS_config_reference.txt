@@ -1,0 +1,17 @@
+All configurations & All platforms (win32, x86) (at least for now)
+
+Config Properties-General:
+	Configuration Type: Dynamic Library (dll)
+	Output Directory (bin - exe): $(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\
+	Intermediate Directory (obj - o): $(SolutionDir)obj\$(Configuration)-$(Platform)\$(ProjectName)\
+
+
+
+	
+Same for the Sandbox project, but Configuration Type: Application (exe)
+
+Sandbox -> Add -> Reference -> Add DuggooEngine -> OK
+
+Set Sandbox as startup project
+
+Swap project declaration lines (Sandbox should be on top)
