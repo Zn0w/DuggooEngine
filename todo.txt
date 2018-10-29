@@ -1,0 +1,2 @@
+[x] set up GLFW for x86 platform
+[ ] set up GLFW for x64 platform
