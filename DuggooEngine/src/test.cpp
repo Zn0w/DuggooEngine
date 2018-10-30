@@ -1,5 +1,8 @@
 #include "test.h"
 
+#include "graphics/window.h"
+#include "graphics/renderer.h"
+
 #include <iostream>
 
 #include <GLFW/glfw3.h>
@@ -8,7 +11,7 @@ namespace Duggoo
 {
 
 	bool game_running;
-	GLFWwindow* window;
+	graphics::Window window;
 	
 	void start()
 	{
@@ -17,48 +20,27 @@ namespace Duggoo
 		game_running = true;
 		int count = 0;
 
-		/* Initialize the library */
-		if (!glfwInit())
-		{
-			std::cout << "Failed to initialize GLFW." << std::endl;
-			return;
-		}
-
-		/* Create a windowed mode window and its OpenGL context */
-		window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-		if (!window)
-		{
-			glfwTerminate();
-			std::cout << "Failed to create a GLFW window." << std::endl;
-			return;
-		}
-
-		/* Make the window's context current */
-		glfwMakeContextCurrent(window);
+		window = graphics::createWindow(0, 0, 640, 480, "Duggoo Engine Sandbox Window");
 
 		std::cout << "Game init" << std::endl;
 
 		/* Loop until the user closes the window or the game stops*/
-		while (game_running && !glfwWindowShouldClose(window))
+		while (game_running && graphics::isOpen(window))
 		{
 			count++;
 			game_running = count < 1000;
 
-			/* Render here */
-			glClear(GL_COLOR_BUFFER_BIT);
+			graphics::prepareRender();
+			graphics::render(window);
 
-			/* Swap front and back buffers */
-			glfwSwapBuffers(window);
-
-			/* Poll for and process events */
-			glfwPollEvents();
+			graphics::updateWindow(window);
 
 			std::cout << "Game refresh" << std::endl;
 		}
 
 		std::cout << "Game destroy" << std::endl;
 
-		glfwTerminate();
+		graphics::close();
 	}
 
 }

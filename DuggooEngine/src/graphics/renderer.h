@@ -7,4 +7,6 @@ namespace Duggoo
 
 	void render(Window);
 
+	void prepareRender();
+
 } }
