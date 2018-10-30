@@ -1,2 +1,3 @@
 [x] set up GLFW for x86 platform
 [ ] set up GLFW for x64 platform
+[ ] write a script that will automatically make a copy of the newely built dll file (DuggooEngine) to the Sandbox's bin
