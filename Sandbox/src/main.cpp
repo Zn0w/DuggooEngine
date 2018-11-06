@@ -12,34 +12,30 @@
 // ^^^^
 // |||| This import is just for now
 
-void main()
+int main()
 {
 	//Duggoo::start();
 	//system("pause");
 
-	bool game_running;
-	Duggoo::graphics::Window window;
+	Duggoo::app::Application game;
 
 	
-	std::cout << "Hello from Duggoo Engine!" << std::endl;
+	std::cout << "Hello from Duggoo Engine Sandbox!" << std::endl;
 
-	game_running = true;
+	game.game_running = true;
 	int count = 0;
 
-	window = Duggoo::graphics::createWindow(0, 0, 640, 480, "Duggoo Engine Sandbox Window");
+	game.window = Duggoo::graphics::createWindow(0, 0, 640, 480, "Duggoo Engine Sandbox Window");
 
 	std::cout << "Game init" << std::endl;
 
 	/* Loop until the user closes the window or the game stops*/
-	while (game_running && Duggoo::graphics::isOpen(window))
+	while (game.game_running && Duggoo::graphics::isOpen(game.window))
 	{
 		count++;
-		game_running = count < 1000;
+		game.game_running = count < 1000;
 
-		Duggoo::graphics::prepareRender();
-		Duggoo::graphics::render(window);
-
-		Duggoo::graphics::updateWindow(window);
+		game.draw();
 
 		std::cout << "Game refresh" << std::endl;
 	}
