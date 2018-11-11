@@ -1,5 +1,3 @@
-// It will be in main function of the game
-
 #include "entry_point.h"
 
 #include "../duggoo.h"
