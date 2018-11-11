@@ -99,6 +99,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)DuggooEngine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -123,6 +124,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)DuggooEngine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -150,6 +152,7 @@
     <ClCompile Include="src\duggoo\entry_point.cpp" />
     <ClCompile Include="src\duggoo\graphics\renderer.cpp" />
     <ClCompile Include="src\duggoo\graphics\window.cpp" />
+    <ClCompile Include="src\duggoo\log\log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="src\duggoo\entry_point.h" />
     <ClInclude Include="src\duggoo\graphics\renderer.h" />
     <ClInclude Include="src\duggoo\graphics\window.h" />
+    <ClInclude Include="src\duggoo\log\log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
