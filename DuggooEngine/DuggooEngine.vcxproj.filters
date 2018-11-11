@@ -24,6 +24,9 @@
     <ClCompile Include="src\duggoo\app\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\duggoo\entry_point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo\graphics\renderer.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\app\application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\entry_point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

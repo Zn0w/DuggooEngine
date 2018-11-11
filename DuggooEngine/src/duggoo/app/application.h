@@ -19,8 +19,10 @@ namespace Duggoo
 		{
 			Duggoo::graphics::prepareRender();
 			Duggoo::graphics::render(window);
+		}
 
-			// this should be called getWindowEvents and return the polled events and must be required to use in virtual handleWindowEvents() function
+		void update() // A user of the engine will be able to (and should) override this function
+		{
 			Duggoo::graphics::updateWindow(window);
 		}
 	};

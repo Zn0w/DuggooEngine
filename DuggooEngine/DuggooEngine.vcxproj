@@ -147,12 +147,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp" />
+    <ClCompile Include="src\duggoo\entry_point.cpp" />
     <ClCompile Include="src\duggoo\graphics\renderer.cpp" />
     <ClCompile Include="src\duggoo\graphics\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
     <ClInclude Include="src\duggoo\app\application.h" />
+    <ClInclude Include="src\duggoo\entry_point.h" />
     <ClInclude Include="src\duggoo\graphics\renderer.h" />
     <ClInclude Include="src\duggoo\graphics\window.h" />
   </ItemGroup>

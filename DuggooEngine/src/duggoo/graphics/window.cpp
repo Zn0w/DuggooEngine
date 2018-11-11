@@ -39,7 +39,7 @@ namespace Duggoo
 		return !glfwWindowShouldClose(w.glfw_window);
 	}
 
-	void updateWindow(Window w)
+	void updateWindow(Window w) // This function will be renamed and will return invoked events of the window
 	{
 		/* Poll for and process events */
 		glfwPollEvents();
