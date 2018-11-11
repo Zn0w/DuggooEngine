@@ -10,28 +10,28 @@ namespace Duggoo
 
 	void log(LogLevel level, const char* message)
 	{
-		const char* lvl_str = "";
+		char lvl_str[220];
 
 		switch (level)
 		{
 			case TRACE :
-				lvl_str = "TRACE	";
+				strcpy((char*) lvl_str, "TRACE    ");
 				break;
 
 			case INFO :
-				lvl_str = "INFO		";
+				strcpy((char*)lvl_str, "INFO     ");
 				break;
 
 			case WARN :
-				lvl_str = "WARN		";
+				strcpy((char*)lvl_str, "WARN     ");
 				break;
 
 			case ERROR :
-				lvl_str = "ERROR	";
+				strcpy((char*)lvl_str, "ERROR    ");
 				break;
 
 			case FATAL :
-				lvl_str = "FATAL	";
+				strcpy((char*)lvl_str, "FATAL    ");
 				break;
 		}
 
