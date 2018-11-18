@@ -1,54 +1,52 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="duggoo">
+      <UniqueIdentifier>{8A56A2F9-76F8-CCCF-5FB3-E0234BF45320}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="duggoo\app">
+      <UniqueIdentifier>{DAFCB918-C6B4-FB65-2FBC-D4C11B939656}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="duggoo\graphics">
+      <UniqueIdentifier>{2AB6834D-9641-F111-9F52-74060B5D4D12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\log">
+      <UniqueIdentifier>{7B2BBA18-67E3-FB65-D0EA-D4C1BCC19656}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\duggoo\graphics\renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\duggoo\graphics\window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\duggoo\app\application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\duggoo\entry_point.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\duggoo\log\log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\duggoo\graphics\renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\duggoo\graphics\window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\duggoo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\duggoo.h" />
     <ClInclude Include="src\duggoo\app\application.h">
-      <Filter>Header Files</Filter>
+      <Filter>duggoo\app</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\entry_point.h">
-      <Filter>Header Files</Filter>
+      <Filter>duggoo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\renderer.h">
+      <Filter>duggoo\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\window.h">
+      <Filter>duggoo\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\log\log.h">
-      <Filter>Header Files</Filter>
+      <Filter>duggoo\log</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\duggoo\app\application.cpp">
+      <Filter>duggoo\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\duggoo\entry_point.cpp">
+      <Filter>duggoo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\duggoo\graphics\renderer.cpp">
+      <Filter>duggoo\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\duggoo\graphics\window.cpp">
+      <Filter>duggoo\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\duggoo\log\log.cpp">
+      <Filter>duggoo\log</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

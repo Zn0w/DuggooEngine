@@ -30,5 +30,7 @@ __declspec(dllexport) void start()
 
 	Duggoo::log(Duggoo::TRACE, "Game destroy");
 
+	Duggoo::log(Duggoo::INFO, "Testing premake5.");
+
 	Duggoo::graphics::close();
 }
