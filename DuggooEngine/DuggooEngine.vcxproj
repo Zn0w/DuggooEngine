@@ -88,7 +88,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll\binDebug-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll\binDebug-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll\binDebug-windows-x86\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Debug-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Debug-windows-x86\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,7 +105,7 @@
       <ImportLibrary>..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll\binRelease-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll\binRelease-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll\binRelease-windows-x86\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Release-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Release-windows-x86\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|Win32'">
@@ -122,22 +122,16 @@
       <ImportLibrary>..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll\binDist-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll\binDist-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll\binDist-windows-x86\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Dist-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86\DuggooEngine\DuggooEngine.dll ..\bin\Dist-windows-x86\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
-    <ClInclude Include="src\duggoo\app\application.h" />
     <ClInclude Include="src\duggoo\entry_point.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer.h" />
-    <ClInclude Include="src\duggoo\graphics\window.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\duggoo\app\application.cpp" />
     <ClCompile Include="src\duggoo\entry_point.cpp" />
-    <ClCompile Include="src\duggoo\graphics\renderer.cpp" />
-    <ClCompile Include="src\duggoo\graphics\window.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

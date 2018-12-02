@@ -86,9 +86,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86\Sandbox\Sandbox.exe\binDebug-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86\Sandbox\Sandbox.exe\binDebug-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86\Sandbox\Sandbox.exe\binDebug-windows-x86\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -102,9 +99,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86\Sandbox\Sandbox.exe\binRelease-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86\Sandbox\Sandbox.exe\binRelease-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86\Sandbox\Sandbox.exe\binRelease-windows-x86\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|Win32'">
     <ClCompile>
@@ -118,9 +112,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86\Sandbox\Sandbox.exe\binDist-windows-x86\Sandbox\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86\Sandbox\Sandbox.exe\binDist-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86\Sandbox\Sandbox.exe\binDist-windows-x86\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

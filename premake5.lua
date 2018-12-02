@@ -41,7 +41,7 @@ project "DuggooEngine"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath}" .. "/bin" .. output_dir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. output_dir .. "/Sandbox")
 		}
 
 project "Sandbox"
@@ -76,9 +76,4 @@ project "Sandbox"
 		defines
 		{
 			
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath}" .. "/bin" .. output_dir .. "/Sandbox")
 		}
