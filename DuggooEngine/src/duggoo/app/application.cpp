@@ -25,4 +25,9 @@ namespace Duggoo { namespace app {
 		Duggoo::log(Duggoo::INFO, destroy_message);
 	}
 
+	bool Application::isRunning()
+	{
+		return running;
+	}
+
 } }
