@@ -4,12 +4,18 @@
     <Filter Include="duggoo">
       <UniqueIdentifier>{8A56A2F9-76F8-CCCF-5FB3-E0234BF45320}</UniqueIdentifier>
     </Filter>
+    <Filter Include="duggoo\app">
+      <UniqueIdentifier>{DAFCB918-C6B4-FB65-2FBC-D4C11B939656}</UniqueIdentifier>
+    </Filter>
     <Filter Include="duggoo\log">
       <UniqueIdentifier>{7B2BBA18-67E3-FB65-D0EA-D4C1BCC19656}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
+    <ClInclude Include="src\duggoo\app\application.h">
+      <Filter>duggoo\app</Filter>
+    </ClInclude>
     <ClInclude Include="src\duggoo\entry_point.h">
       <Filter>duggoo</Filter>
     </ClInclude>
@@ -18,6 +24,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\duggoo\app\application.cpp">
+      <Filter>duggoo\app</Filter>
+    </ClCompile>
     <ClCompile Include="src\duggoo\entry_point.cpp">
       <Filter>duggoo</Filter>
     </ClCompile>

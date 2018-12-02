@@ -5,4 +5,6 @@
 __declspec(dllexport) void start()
 {
 	Duggoo::log(Duggoo::INFO, "Hello World! :)");
+
+	Duggoo::app::Application game("Sandbox");
 }
