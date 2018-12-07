@@ -10,6 +10,9 @@
     <Filter Include="duggoo\events">
       <UniqueIdentifier>{4E177D1E-BAD7-F854-8312-42D2EF913D31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="duggoo\graphics">
+      <UniqueIdentifier>{2AB6834D-9641-F111-9F52-74060B5D4D12}</UniqueIdentifier>
+    </Filter>
     <Filter Include="duggoo\log">
       <UniqueIdentifier>{7B2BBA18-67E3-FB65-D0EA-D4C1BCC19656}</UniqueIdentifier>
     </Filter>
@@ -27,6 +30,15 @@
     </ClInclude>
     <ClInclude Include="src\duggoo\events\key_event.h">
       <Filter>duggoo\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\events\mouse_event.h">
+      <Filter>duggoo\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\events\window_event.h">
+      <Filter>duggoo\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\winmain.h">
+      <Filter>duggoo\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\log\log.h">
       <Filter>duggoo\log</Filter>

@@ -4,6 +4,8 @@
 
 #include "../log/log.h"
 
+#include "../graphics/window.h"
+
 namespace Duggoo { namespace app {
 
 	class Application
@@ -11,6 +13,7 @@ namespace Duggoo { namespace app {
 
 	private:
 		const char* title;
+		graphics::Window window;
 
 	protected:
 		bool running;

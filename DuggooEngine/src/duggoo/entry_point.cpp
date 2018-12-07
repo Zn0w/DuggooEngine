@@ -25,6 +25,7 @@ public:
 
 __declspec(dllexport) void start()
 {
+	WinMain(0, 0, 0, 0);
 	Duggoo::log(Duggoo::INFO, "Hello World! :)");
 
 	Game my_game("Sandbox");

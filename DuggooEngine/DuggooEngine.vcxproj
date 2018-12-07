@@ -131,6 +131,9 @@
     <ClInclude Include="src\duggoo\entry_point.h" />
     <ClInclude Include="src\duggoo\events\event.h" />
     <ClInclude Include="src\duggoo\events\key_event.h" />
+    <ClInclude Include="src\duggoo\events\mouse_event.h" />
+    <ClInclude Include="src\duggoo\events\window_event.h" />
+    <ClInclude Include="src\duggoo\graphics\winmain.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
   </ItemGroup>
   <ItemGroup>

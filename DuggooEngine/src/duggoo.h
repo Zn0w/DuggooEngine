@@ -8,6 +8,8 @@
 
 #include "duggoo/app/application.h"
 
+#include "duggoo/graphics/window.h"
+
 // I may not need these:
 //#include "duggoo/graphics/window.h"
 //#include "duggoo/graphics/renderer.h"
