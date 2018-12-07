@@ -136,11 +136,9 @@
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp" />
     <ClCompile Include="src\duggoo\entry_point.cpp" />
-    <ClCompile Include="src\duggoo\events\event.cpp" />
-    <ClCompile Include="src\duggoo\events\key_event.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

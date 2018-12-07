@@ -29,10 +29,10 @@ namespace Duggoo { namespace event {
 		EventType type;
 
 	public:
-		Event(EventType);
-		~Event();
+		Event(EventType t) : type(t) {}
+		~Event() { log(Duggoo::INFO, "Event processed"); }
 
-		EventType getType();
+		EventType getType() { return type; }
 
 	};
 

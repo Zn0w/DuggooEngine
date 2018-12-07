@@ -11,7 +11,9 @@ namespace Duggoo { namespace event {
 		char key;
 
 	public:
-		KeyEvent(EventType, char);
+		KeyEvent(EventType t, char k) : Event(t), key(k) {}
+
+		char getKey() { return key; }
 
 	};
 

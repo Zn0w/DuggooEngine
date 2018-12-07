@@ -39,12 +39,6 @@
     <ClCompile Include="src\duggoo\entry_point.cpp">
       <Filter>duggoo</Filter>
     </ClCompile>
-    <ClCompile Include="src\duggoo\events\event.cpp">
-      <Filter>duggoo\events</Filter>
-    </ClCompile>
-    <ClCompile Include="src\duggoo\events\key_event.cpp">
-      <Filter>duggoo\events</Filter>
-    </ClCompile>
     <ClCompile Include="src\duggoo\log\log.cpp">
       <Filter>duggoo\log</Filter>
     </ClCompile>
