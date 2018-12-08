@@ -1,7 +1,5 @@
 #pragma once
 
-#include <windows.h>
-
 namespace Duggoo { namespace graphics {
 		/*struct _WNDCLASS
 		{
@@ -17,15 +15,11 @@ namespace Duggoo { namespace graphics {
 			LPCTSTR lpszClassName;
 		};*/
 
-		class Window
+		struct Window
 		{
-		
-		private:
-			WNDCLASS window_class = {}; // initilize every element of window class to zero
-
-		public:
-			Window(int w, int h, const char* t);
-
+			int x, y, width, height;
+			const char* title;
+			// Dynamic array of entities, etc ...
 		};
 
 } }

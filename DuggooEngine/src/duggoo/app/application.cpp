@@ -30,4 +30,13 @@ namespace Duggoo { namespace app {
 		return running;
 	}
 
+	void Application::setWindow(int x_pos, int y_pos, int w, int h, const char* t)
+	{
+		window.x = x_pos;
+		window.y = y_pos;
+		window.width = w;
+		window.height = h;
+		window.title = t;
+	}
+
 } }

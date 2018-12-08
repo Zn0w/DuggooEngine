@@ -13,6 +13,7 @@ namespace Duggoo { namespace app {
 
 	private:
 		const char* title;
+		
 		graphics::Window window;
 
 	protected:
@@ -25,6 +26,9 @@ namespace Duggoo { namespace app {
 		virtual void update() = 0;
 
 		bool isRunning();
+
+		void setWindow(int x_pos, int y_pos, int w, int h, const char* t);
+		graphics::Window getWindow() { return window; }
 
 	};
 

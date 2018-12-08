@@ -37,7 +37,10 @@
     <ClInclude Include="src\duggoo\events\window_event.h">
       <Filter>duggoo\events</Filter>
     </ClInclude>
-    <ClInclude Include="src\duggoo\graphics\winmain.h">
+    <ClInclude Include="src\duggoo\graphics\graphics_entry.h">
+      <Filter>duggoo\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\window.h">
       <Filter>duggoo\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\log\log.h">

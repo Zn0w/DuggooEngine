@@ -2,6 +2,8 @@
 
 #include "../duggoo.h"
 
+#include "graphics/graphics_entry.h"
+
 class Game : public Duggoo::app::Application
 {
 private:
@@ -25,10 +27,13 @@ public:
 
 __declspec(dllexport) void start()
 {
-	WinMain(0, 0, 0, 0);
 	Duggoo::log(Duggoo::INFO, "Hello World! :)");
 
 	Game my_game("Sandbox");
+	
+	my_game.setWindow(200, 200, 500, 500, "This is a test!");
+
+	Duggoo::graphics::initGraphics(&(my_game.getWindow()));
 
 	while (my_game.isRunning())
 	{
