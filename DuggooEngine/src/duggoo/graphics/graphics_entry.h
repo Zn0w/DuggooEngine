@@ -1,6 +1,8 @@
 #pragma once
 
 #include <windows.h>
+
+// TODO : delete this line
 #include <tchar.h>		// for _T macro
 
 #include "window.h"
@@ -8,6 +10,20 @@
 #include <stdio.h>
 
 Duggoo::graphics::Window* window_data;
+
+// TODO : temporary solution
+static bool running;
+
+// A local function for handling WM_SIZE
+static void resizeDIBSection(int width, int height)
+{
+	CreateDIBSection();
+}
+
+static void updateWindow(HDC device_context, int x, int y, int width, int height)
+{
+	StretchDIBits(device_context, x, y, width, height, x, y, width, height, DIB_RGB_COLORS, );
+}
 
 LRESULT CALLBACK MainWindowProc(
 	HWND   window,
@@ -22,20 +38,25 @@ LRESULT CALLBACK MainWindowProc(
 	{
 		case WM_SIZE :
 		{
-			OutputDebugStringA("WM_SIZE\n");
-			printf("WM_SIZE\n");
+			RECT client_rect;
+			GetClientRect(window, &client_rect);
+
+			int width = client_rect.right - client_rect.left;
+			int height = client_rect.top - client_rect.bottom;
+
+			resizeDIBSection(width, height);
 		}break;
 
 		case WM_DESTROY :
 		{
-			OutputDebugStringA("WM_DESTROY\n");
-			printf("WM_DESTROY\n");
+			// TODO : handle error (recreate window on the go)
+			running = false;
 		}break;
 
 		case WM_CLOSE :
 		{
-			// TODO : set window_data.opened to false
-			PostQuitMessage(0);
+			// TODO : prompt user if they want to exit
+			running = false;
 			window_data->opened = false;
 			printf("WM_CLOSE\n");
 		}break;
@@ -51,21 +72,18 @@ LRESULT CALLBACK MainWindowProc(
 			// TODO : handle event with event system and change window_data or use windows's default handling (with paint struct)
 			PAINTSTRUCT paint;
 			HDC device_context = BeginPaint(window, &paint);
-			static DWORD operation = WHITENESS;
-			PatBlt(device_context, window_data->x, window_data->y, window_data->width, window_data->height, operation);
 			
-			if (operation == WHITENESS)
-				operation = BLACKNESS;
-			else
-				operation = WHITENESS;
-
+			int x = paint.rcPaint.left;
+			int y = paint.rcPaint.top;
+			int width = paint.rcPaint.right - paint.rcPaint.left;
+			int height = paint.rcPaint.bottom - paint.rcPaint.top;
+			updateWindow(device_context, x, y, width, height);
+			
 			EndPaint(window, &paint);
 		}break;
 
 		default:
 		{
-			//OutputDebugStringA("default\n");
-			//printf("default\n");
 			result = DefWindowProcA(window, message, wParam, lParam);
 		}break;
 
@@ -108,7 +126,9 @@ int CALLBACK WinMain(
 
 		if (window_handle)
 		{
-			for (;;)
+			running = true;
+			
+			while (running)
 			{
 				MSG message;
 				BOOL message_result = GetMessage(&message, 0, 0, 0);
