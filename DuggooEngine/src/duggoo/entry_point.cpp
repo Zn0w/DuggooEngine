@@ -18,10 +18,10 @@ public:
 	
 	void update()
 	{
-		counter++;
+		//counter++;
 		
-		if (counter >= 999999999)
-			running = false;
+		//if (counter >= 999999999)
+			//running = false;
 	}
 };
 
@@ -33,9 +33,9 @@ __declspec(dllexport) void start()
 	
 	my_game.setWindow(200, 200, 500, 500, "This is a test!");
 
-	Duggoo::graphics::initGraphics(&(my_game.getWindow()));
+	Duggoo::graphics::initGraphics(&(my_game.window));
 
-	while (my_game.isRunning())
+	while (my_game.isRunning() && my_game.window.opened)
 	{
 		my_game.update();
 	}

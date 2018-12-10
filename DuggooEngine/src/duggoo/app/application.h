@@ -14,6 +14,7 @@ namespace Duggoo { namespace app {
 	private:
 		const char* title;
 		
+	public:
 		graphics::Window window;
 
 	protected:

@@ -34,7 +34,10 @@ LRESULT CALLBACK MainWindowProc(
 
 		case WM_CLOSE :
 		{
-
+			// TODO : set window_data.opened to false
+			PostQuitMessage(0);
+			window_data->opened = false;
+			printf("WM_CLOSE\n");
 		}break;
 
 		case WM_ACTIVATEAPP:
@@ -45,6 +48,7 @@ LRESULT CALLBACK MainWindowProc(
 
 		case WM_PAINT :
 		{
+			// TODO : handle event with event system and change window_data or use windows's default handling (with paint struct)
 			PAINTSTRUCT paint;
 			HDC device_context = BeginPaint(window, &paint);
 			static DWORD operation = WHITENESS;
@@ -60,8 +64,8 @@ LRESULT CALLBACK MainWindowProc(
 
 		default:
 		{
-			OutputDebugStringA("default\n");
-			printf("default\n");
+			//OutputDebugStringA("default\n");
+			//printf("default\n");
 			result = DefWindowProcA(window, message, wParam, lParam);
 		}break;
 
@@ -86,13 +90,11 @@ int CALLBACK WinMain(
 	window_class.lpszClassName = "DuggooWindowClass";
 
 	if (RegisterClassA(&window_class))
-	{
-		const char* title = window_data->title;
-		
+	{	
 		HWND window_handle = CreateWindowExA(
 			0,
 			window_class.lpszClassName,
-			title,
+			window_data->title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			window_data->x,
 			window_data->y,
@@ -106,11 +108,19 @@ int CALLBACK WinMain(
 
 		if (window_handle)
 		{
-			MSG message;
-			while (GetMessage(&message, 0, 0, 0))
+			for (;;)
 			{
-				TranslateMessage(&message);
-				DispatchMessage(&message);
+				MSG message;
+				BOOL message_result = GetMessage(&message, 0, 0, 0);
+				if (message_result > 0)
+				{
+					TranslateMessage(&message);
+					DispatchMessageA(&message);
+				}
+				else
+				{
+					break;
+				}
 			}
 		}
 		else
@@ -129,6 +139,7 @@ namespace Duggoo { namespace graphics {
 	void initGraphics(Window* w)
 	{
 		window_data = w;
+		window_data->opened = true;
 		WinMain(0, 0, 0, 0);
 	}
 
