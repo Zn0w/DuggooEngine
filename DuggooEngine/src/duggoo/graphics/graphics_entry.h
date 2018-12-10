@@ -47,7 +47,14 @@ LRESULT CALLBACK MainWindowProc(
 		{
 			PAINTSTRUCT paint;
 			HDC device_context = BeginPaint(window, &paint);
-			PatBlt(device_context, window_data->x, window_data->y, window_data->width, window_data->height, WHITENESS);
+			static DWORD operation = WHITENESS;
+			PatBlt(device_context, window_data->x, window_data->y, window_data->width, window_data->height, operation);
+			
+			if (operation == WHITENESS)
+				operation = BLACKNESS;
+			else
+				operation = WHITENESS;
+
 			EndPaint(window, &paint);
 		}break;
 
@@ -70,18 +77,20 @@ int CALLBACK WinMain(
 	int       cmd_show
 )
 {
-	WNDCLASS window_class = {}; // initilize every element of window class to zero
+	// suffix A in WNDCLASS, RegisterClass() and CreateWindowExA - means to treat the const char* data as acii code
+	
+	WNDCLASSA window_class = {}; // initilize every element of window class to zero
 	window_class.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
 	window_class.lpfnWndProc = MainWindowProc;
 	window_class.hInstance = instance;
-	window_class.lpszClassName = _T("DuggooWindowClass");
+	window_class.lpszClassName = "DuggooWindowClass";
 
-	if (RegisterClass(&window_class))
+	if (RegisterClassA(&window_class))
 	{
-		HWND window_handle = CreateWindowEx(
+		HWND window_handle = CreateWindowExA(
 			0,
 			window_class.lpszClassName,
-			_T("This is a test!"),	//_T(window_data->title),
+			window_data->title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			window_data->x,
 			window_data->y,
