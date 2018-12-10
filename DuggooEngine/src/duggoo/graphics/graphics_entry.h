@@ -62,7 +62,7 @@ LRESULT CALLBACK MainWindowProc(
 		{
 			OutputDebugStringA("default\n");
 			printf("default\n");
-			result = DefWindowProc(window, message, wParam, lParam);
+			result = DefWindowProcA(window, message, wParam, lParam);
 		}break;
 
 	}
@@ -77,7 +77,7 @@ int CALLBACK WinMain(
 	int       cmd_show
 )
 {
-	// suffix A in WNDCLASS, RegisterClass() and CreateWindowExA - means to treat the const char* data as acii code
+	// suffix A in WNDCLASS, RegisterClass() and CreateWindowExA - means to treat the const char* data as ansi code
 	
 	WNDCLASSA window_class = {}; // initilize every element of window class to zero
 	window_class.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
@@ -87,10 +87,12 @@ int CALLBACK WinMain(
 
 	if (RegisterClassA(&window_class))
 	{
+		const char* title = window_data->title;
+		
 		HWND window_handle = CreateWindowExA(
 			0,
 			window_class.lpszClassName,
-			window_data->title,
+			title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			window_data->x,
 			window_data->y,
