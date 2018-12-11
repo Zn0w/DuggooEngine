@@ -14,15 +14,53 @@ Duggoo::graphics::Window* window_data;
 // TODO : temporary solution
 static bool running;
 
+// TODO	: make those variables local to the translation unit
+static BITMAPINFO bitmap_info;
+static void* bitmap_memory;		// the memory that is being drawn to from custom render
+static HBITMAP bitmap_handle;
+static HDC bitmap_device_context;
+
 // A local function for handling WM_SIZE
 static void resizeDIBSection(int width, int height)
-{
-	CreateDIBSection();
+{	
+	// free the DIBSection after each creation
+	if (bitmap_handle)
+	{
+		DeleteObject(bitmap_handle);
+	}
+	
+	if (!bitmap_device_context)
+	{
+		bitmap_device_context = CreateCompatibleDC(0);		// if the function argument is NULL (0), the function creates a memory DC compatible withthe application's current screen.
+
+	}
+
+	bitmap_info.bmiHeader.biSize = sizeof(bitmap_info.bmiHeader);
+	bitmap_info.bmiHeader.biWidth = width;
+	bitmap_info.bmiHeader.biHeight = height;
+	bitmap_info.bmiHeader.biPlanes = 1;				// This value must be set to 1 (says msdn)
+	bitmap_info.bmiHeader.biBitCount = 32;			// 8 for red, 8 for green, 8 for blue and 8 for the future (need at leas 24)
+	bitmap_info.bmiHeader.biCompression = BI_RGB;	// Uncompressed format
+	bitmap_info.bmiHeader.biSizeImage = 0;			// this can be set to 0 for BI_RGB bitmaps
+	bitmap_info.bmiHeader.biXPelsPerMeter = 0;
+	bitmap_info.bmiHeader.biYPelsPerMeter = 0;
+	bitmap_info.bmiHeader.biClrUsed = 0;			// Packed bitmaps require that the biClrUsed member must be either zero or the actual size of the color table.
+	bitmap_info.bmiHeader.biClrImportant = 0;		// The number of color indexes that are required for displaying the bitmap.If this value is zero, all colors are required.
+	
+	bitmap_handle = CreateDIBSection(bitmap_device_context, &bitmap_info, DIB_RGB_COLORS, &bitmap_memory, 0, 0);
 }
 
 static void updateWindow(HDC device_context, int x, int y, int width, int height)
 {
-	StretchDIBits(device_context, x, y, width, height, x, y, width, height, DIB_RGB_COLORS, );
+	StretchDIBits(
+		device_context, 
+		x, y, width, height, 
+		x, y, width, height, 
+		bitmap_memory, 
+		&bitmap_info, 
+		DIB_RGB_COLORS, 
+		SRCCOPY
+	);
 }
 
 LRESULT CALLBACK MainWindowProc(
