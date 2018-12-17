@@ -18,6 +18,9 @@ project "DuggooEngine"
 	targetdir ("bin/" .. output_dir .. "/%{prj.name}")
 	objdir ("obj/" .. output_dir .. "/%{prj.name}")
 
+	pchheader "duggoo_pch.h"
+	pchsource "DuggooEngine/duggoo/duggoo_pch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

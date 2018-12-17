@@ -167,7 +167,7 @@ int CALLBACK WinMain(
 	// suffix A in WNDCLASS, RegisterClass() and CreateWindowExA - means to treat the const char* data as ansi code
 	
 	WNDCLASSA window_class = {}; // initilize every element of window class to zero
-	window_class.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
+	//window_class.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
 	window_class.lpfnWndProc = MainWindowProc;
 	window_class.hInstance = instance;
 	window_class.lpszClassName = "DuggooWindowClass";
@@ -179,10 +179,10 @@ int CALLBACK WinMain(
 			window_class.lpszClassName,
 			window_data->title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			window_data->x,
-			window_data->y,
-			window_data->width,
-			window_data->height,
+			CW_USEDEFAULT, //window_data->x,
+			CW_USEDEFAULT, //window_data->y,
+			CW_USEDEFAULT, //window_data->width,
+			CW_USEDEFAULT, //window_data->height,
 			0,
 			0,
 			instance,

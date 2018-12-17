@@ -46,6 +46,7 @@
     <ClInclude Include="src\duggoo\log\log.h">
       <Filter>duggoo\log</Filter>
     </ClInclude>
+    <ClInclude Include="src\duggoo_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
@@ -57,5 +58,6 @@
     <ClCompile Include="src\duggoo\log\log.cpp">
       <Filter>duggoo\log</Filter>
     </ClCompile>
+    <ClCompile Include="src\duggoo_pch.cpp" />
   </ItemGroup>
 </Project>

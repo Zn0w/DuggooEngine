@@ -76,7 +76,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>duggoo_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>..\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
@@ -93,7 +94,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>duggoo_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>..\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
@@ -110,7 +112,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>duggoo_pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>..\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
@@ -136,11 +139,13 @@
     <ClInclude Include="src\duggoo\graphics\graphics_entry.h" />
     <ClInclude Include="src\duggoo\graphics\window.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
+    <ClInclude Include="src\duggoo_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp" />
     <ClCompile Include="src\duggoo\entry_point.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
+    <ClCompile Include="src\duggoo_pch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
