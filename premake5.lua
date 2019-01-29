@@ -10,6 +10,14 @@ workspace "DuggooEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "DuggooEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "DuggooEngine/vendor/Glad/include"
+
+include "DuggooEngine/vendor/GLFW"
+include "DuggooEngine/vendor/Glad"
+
 project "DuggooEngine"
 	location	"DuggooEngine"
 	kind		"SharedLib"
@@ -26,7 +34,14 @@ project "DuggooEngine"
 
 	includedirs
 	{
-		
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
+	}
+
+	links
+	{
+		"GLFW",
+		"Glad"
 	}
 
 	filter "system:windows"
@@ -36,7 +51,7 @@ project "DuggooEngine"
 
 		defines
 		{
-			
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -46,14 +61,17 @@ project "DuggooEngine"
 		
 	filter "configurations:Debug"
 		defines "DG_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DG_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DG_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -92,12 +110,15 @@ project "Sandbox"
 		
 	filter "configurations:Debug"
 		defines "DG_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DG_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DG_DIST"
+		buildoptions "/MD"
 		optimize "On"

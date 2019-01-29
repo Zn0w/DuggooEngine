@@ -1,5 +1,3 @@
 #pragma once
 
-#include <iostream>
-
-__declspec(dllexport) void sayHello();
+__declspec(dllexport) void openWindow();
