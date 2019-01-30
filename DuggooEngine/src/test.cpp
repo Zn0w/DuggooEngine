@@ -3,9 +3,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+GLFWwindow* window;
+
 void openWindow()
 {
-	GLFWwindow* window;
+	//GLFWwindow* window;
 	
 	if (!glfwInit())
 		return;
@@ -19,11 +21,13 @@ void openWindow()
 
 	glfwMakeContextCurrent(window);
 
+	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);		// In ordred to be able to use opengl functions
+
 	while (!glfwWindowShouldClose(window))
 	{
-		//glClearColor(1, 1, 1, 1);
-		//glClear(GL_COLOR_BUFFER_BIT);
-
+		glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
+		
 		glfwSwapBuffers(window);
 		
 		glfwPollEvents();
