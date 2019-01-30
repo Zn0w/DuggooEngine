@@ -5,6 +5,12 @@
 
 void start()
 {
+	LOG_TRACE("trace message");
+	LOG_INFO("info message");
+	LOG_WARN("warning message");
+	LOG_ERROR("error message");
+	LOG_FATAL("fatal message");
+	
 	GLFWwindow* window;
 
 	if (!glfwInit())

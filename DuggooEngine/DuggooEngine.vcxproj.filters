@@ -2,9 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\entry_point.cpp" />
+    <ClCompile Include="src\duggoo\log\log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
     <ClInclude Include="src\entry_point.h" />
+    <ClInclude Include="src\duggoo\log\log.h" />
   </ItemGroup>
 </Project>

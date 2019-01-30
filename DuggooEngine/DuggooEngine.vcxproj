@@ -147,9 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
+    <ClInclude Include="src\duggoo\log\log.h" />
     <ClInclude Include="src\entry_point.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\duggoo\log\log.cpp" />
     <ClCompile Include="src\entry_point.cpp" />
   </ItemGroup>
   <ItemGroup>
