@@ -1,9 +1,6 @@
-//__declspec(dllimport) void sayHello();
-//#include <test.h>
-__declspec(dllimport) void openWindow();
+__declspec(dllimport) void start();
 
 int main()
 {
-	//sayHello();
-	openWindow();
+	start();
 }

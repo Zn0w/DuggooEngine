@@ -51,6 +51,8 @@ project "DuggooEngine"
 
 		defines
 		{
+			"DG_PLATFORM_WINDOWS",
+			"DG_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
 

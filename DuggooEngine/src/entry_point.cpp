@@ -1,14 +1,12 @@
-#include "test.h"
+#include "entry_point.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-GLFWwindow* window;
-
-void openWindow()
+void start()
 {
-	//GLFWwindow* window;
-	
+	GLFWwindow* window;
+
 	if (!glfwInit())
 		return;
 
@@ -27,9 +25,9 @@ void openWindow()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
-		
+
 		glfwSwapBuffers(window);
-		
+
 		glfwPollEvents();
 	}
 
