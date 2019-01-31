@@ -26,7 +26,7 @@ namespace dg
 			strcpy((char*)lvl_str, "WARN     ");
 			break;
 
-		case ERROR:
+		case ERR:
 			strcpy((char*)lvl_str, "ERROR    ");
 			break;
 

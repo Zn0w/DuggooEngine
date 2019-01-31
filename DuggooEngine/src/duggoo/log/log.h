@@ -8,7 +8,7 @@ namespace dg
 		TRACE,
 		INFO,
 		WARN,
-		ERROR,
+		ERR,
 		FATAL
 	};
 
@@ -20,7 +20,7 @@ namespace dg
 	#define LOG_TRACE(x) dg::log(dg::TRACE, x)
 	#define LOG_INFO(x) dg::log(dg::INFO, x)
 	#define LOG_WARN(x) dg::log(dg::WARN, x)
-	#define LOG_ERROR(x) dg::log(dg::ERROR, x)
+	#define LOG_ERROR(x) dg::log(dg::ERR, x)
 	#define LOG_FATAL(x) dg::log(dg::FATAL, x)
 #else
 	#define LOG_TRACE(x)

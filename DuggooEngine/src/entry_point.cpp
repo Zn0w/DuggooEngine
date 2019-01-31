@@ -5,6 +5,7 @@
 
 void start()
 {
+	// Testing logger
 	LOG_TRACE("trace message");
 	LOG_INFO("info message");
 	LOG_WARN("warning message");
