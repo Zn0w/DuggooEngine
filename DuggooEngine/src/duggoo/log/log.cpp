@@ -5,36 +5,35 @@
 #include <iostream>
 #include <string.h>
 
-namespace dg
-{
+namespace dg {
 
 	void log(LogLevel level, const char* message)
 	{
 		char lvl_str[220];
-
+	
 		switch (level)
 		{
 		case TRACE:
 			strcpy((char*)lvl_str, "TRACE    ");
 			break;
-
+	
 		case INFO:
 			strcpy((char*)lvl_str, "INFO     ");
 			break;
-
+	
 		case WARN:
 			strcpy((char*)lvl_str, "WARN     ");
 			break;
-
+	
 		case ERR:
 			strcpy((char*)lvl_str, "ERROR    ");
 			break;
-
+	
 		case FATAL:
 			strcpy((char*)lvl_str, "FATAL    ");
 			break;
 		}
-
+	
 		std::cout << strcat((char*)lvl_str, (char*)message) << std::endl;
 	}
 

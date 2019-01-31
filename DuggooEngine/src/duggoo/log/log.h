@@ -1,7 +1,6 @@
 #pragma once
 
-namespace dg
-{
+namespace dg {
 
 	enum LogLevel
 	{
@@ -11,7 +10,7 @@ namespace dg
 		ERR,
 		FATAL
 	};
-
+	
 	void log(LogLevel level, const char* message);
 
 }
