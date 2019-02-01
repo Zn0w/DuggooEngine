@@ -4,14 +4,14 @@
 
 namespace dg { namespace event {
 
-	class MouseEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 		
 	public:
-		int x, y, offsetX, offsetY;
+		int x, y;
 		char button;
 
-		MouseEvent(EventType t, int xPos, int yPos, char b)		// for MOUSE_PRESS and MOUSE_RELEASE
+		MouseButtonEvent(EventType t, int xPos, int yPos, char b)
 			: Event(t)
 		{
 			x = xPos;
@@ -19,7 +19,15 @@ namespace dg { namespace event {
 			button = b;
 		}
 
-		MouseEvent(EventType t, int xPos, int yPos, int offX, int offY)		// for MOUSE_MOVE
+	};
+
+	class MouseMoveEvent : public Event
+	{
+
+	public:
+		int x, y, offsetX, offsetY;
+
+		MouseMoveEvent(EventType t, int xPos, int yPos, int offX, int offY)
 			: Event(t)
 		{
 			x = xPos;
@@ -28,7 +36,15 @@ namespace dg { namespace event {
 			offsetY = offY;
 		}
 
-		MouseEvent(EventType t, int xPos, int yPos)		// for MOUSE_SCROLL
+	};
+
+	class MouseScrollEvent : public Event
+	{
+
+	public:
+		int x, y;
+
+		MouseScrollEvent(EventType t, int xPos, int yPos)
 			: Event(t)
 		{
 			x = xPos;

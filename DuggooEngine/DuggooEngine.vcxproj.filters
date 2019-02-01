@@ -8,5 +8,8 @@
     <ClInclude Include="src\duggoo.h" />
     <ClInclude Include="src\entry_point.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
+    <ClInclude Include="src\duggoo\event\event.h" />
+    <ClInclude Include="src\duggoo\event\key_event.h" />
+    <ClInclude Include="src\duggoo\event\mouse_event.h" />
   </ItemGroup>
 </Project>
