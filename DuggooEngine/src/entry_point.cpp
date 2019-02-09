@@ -1,7 +1,7 @@
 #include "entry_point.h"
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "duggoo/graphics/window.h"
+#include "duggoo/graphics/platform/OpenglWindow.h"
 
 void start()
 {
@@ -12,31 +12,16 @@ void start()
 	LOG_ERROR("error message");
 	LOG_FATAL("fatal message");
 	
-	GLFWwindow* window;
-
-	if (!glfwInit())
+	if (!dg::graphics::opengl::initWindow(1280, 720, "This is a test!"))
 		return;
 
-	window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-	if (!window)
-	{
-		glfwTerminate();
-		return;
-	}
-
-	glfwMakeContextCurrent(window);
-
-	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);		// In ordred to be able to use opengl functions
-
-	while (!glfwWindowShouldClose(window))
+	while (!dg::graphics::opengl::windowClosed())
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
 
-		glfwSwapBuffers(window);
-
-		glfwPollEvents();
+		dg::graphics::opengl::windowRefresh();
 	}
 
-	glfwTerminate();
+	dg::graphics::opengl::windowDestroy();
 }

@@ -11,5 +11,7 @@
     <ClInclude Include="src\duggoo\event\event.h" />
     <ClInclude Include="src\duggoo\event\key_event.h" />
     <ClInclude Include="src\duggoo\event\mouse_event.h" />
+    <ClInclude Include="src\duggoo\graphics\window.h" />
+    <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h" />
   </ItemGroup>
 </Project>
