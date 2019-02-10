@@ -9,10 +9,8 @@ namespace dg { namespace graphics { namespace opengl {
 
 	struct OpenglWindow
 	{
-
 		WindowData windowData;
 		GLFWwindow* windowHandle;
-
 	};
 
 	static OpenglWindow window;		// NOTE: static global variable is automatically initialized to zero
