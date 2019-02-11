@@ -1,7 +1,11 @@
 #pragma once
 
-namespace dg { namespace input {
+#ifdef DG_PLATFORM_WINDOWS
+	#include "platform/windows_input.h"
+#endif
 
-	void(*isKeyPressed) (int keycode) = NULL;
+namespace dg { namespace input {
+	
+	bool(*isKeyPressed) (int keycode) = isKeyPressedImpl;
 
 } }

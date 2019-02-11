@@ -3,6 +3,8 @@
 #include "duggoo/graphics/window.h"
 #include "duggoo/graphics/platform/OpenglWindow.h"
 
+#include "duggoo/input/input.h"
+
 void start()
 {
 	// Testing logger
@@ -19,6 +21,9 @@ void start()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
+
+		if (dg::input::isKeyPressed(57))
+			LOG_INFO("An F key is pressed!");
 
 		dg::graphics::opengl::windowRefresh();
 	}
