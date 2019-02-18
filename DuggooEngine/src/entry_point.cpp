@@ -5,6 +5,16 @@
 
 #include "duggoo.h"
 
+#include <string>
+
+void onEvent(dg::event::Event event)
+{
+	if (event.type == dg::event::KEY_PRESS)
+	{
+		LOG_INFO("Some key is pressed!");
+	}
+}
+
 void start()
 {
 	// Testing logger
@@ -14,6 +24,8 @@ void start()
 	LOG_ERROR("error message");
 	LOG_FATAL("fatal message");
 	
+	dg::graphics::opengl::setOnEvent(onEvent);
+	
 	if (!dg::graphics::opengl::initWindow(1280, 720, "This is a test!"))
 		return;
 
@@ -22,7 +34,7 @@ void start()
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
 
-		if (dg::input::isKeyPressed(DG_KEY_F))		//NOTE: an F key in GLFW
+		if (dg::input::isKeyPressed(DG_KEY_F))
 			LOG_INFO("An F key is pressed!");
 
 		dg::graphics::opengl::windowRefresh();

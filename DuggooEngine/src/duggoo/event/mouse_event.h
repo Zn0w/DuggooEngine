@@ -9,9 +9,9 @@ namespace dg { namespace event {
 		
 	public:
 		int x, y;
-		char button;
+		int button;
 
-		MouseButtonEvent(EventType t, int xPos, int yPos, char b)
+		MouseButtonEvent(EventType t, int xPos, int yPos, int b)
 			: Event(t)
 		{
 			x = xPos;

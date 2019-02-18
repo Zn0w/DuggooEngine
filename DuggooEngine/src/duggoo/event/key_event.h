@@ -8,9 +8,9 @@ namespace dg { namespace event {
 	{
 		
 	public:
-		char key;
+		int key;
 
-		KeyEvent(EventType t, char k)
+		KeyEvent(EventType t, int k)
 			: Event(t)
 		{
 			key = k;

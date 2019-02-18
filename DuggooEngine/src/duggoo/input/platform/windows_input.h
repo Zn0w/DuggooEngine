@@ -6,7 +6,7 @@ namespace dg { namespace input {
 	
 	bool isKeyPressedImpl(int keycode)
 	{
-		int state = glfwGetKey(graphics::opengl::window.windowHandle, keycode);	//NOTE: using glfw ketcodes only for early testing purposes
+		int state = glfwGetKey(graphics::opengl::window.windowHandle, keycode);
 		return state == GLFW_PRESS;
 	}
 
