@@ -15,5 +15,7 @@
     <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h" />
     <ClInclude Include="src\duggoo\input\input.h" />
     <ClInclude Include="src\duggoo\input\platform\windows_input.h" />
+    <ClInclude Include="src\duggoo\input\keycodes.h" />
+    <ClInclude Include="src\duggoo\input\mouse_button_codes.h" />
   </ItemGroup>
 </Project>
