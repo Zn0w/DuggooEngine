@@ -3,7 +3,7 @@
 #include "duggoo/graphics/window.h"
 #include "duggoo/graphics/platform/OpenglWindow.h"
 
-#include "duggoo/input/input.h"
+#include "duggoo.h"
 
 void start()
 {
@@ -22,7 +22,7 @@ void start()
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(0.0f, 0.8f, 0.4f, 0.0f);
 
-		if (dg::input::isKeyPressed(70))		//NOTE: an F key in GLFW
+		if (dg::input::isKeyPressed(DG_KEY_F))		//NOTE: an F key in GLFW
 			LOG_INFO("An F key is pressed!");
 
 		dg::graphics::opengl::windowRefresh();
