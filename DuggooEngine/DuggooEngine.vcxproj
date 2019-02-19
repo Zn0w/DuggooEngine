@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
+    <ClInclude Include="src\duggoo\app\application.h" />
     <ClInclude Include="src\duggoo\event\event.h" />
     <ClInclude Include="src\duggoo\event\key_event.h" />
     <ClInclude Include="src\duggoo\event\mouse_event.h" />
@@ -155,11 +156,12 @@
     <ClInclude Include="src\duggoo\input\input.h" />
     <ClInclude Include="src\duggoo\input\keycodes.h" />
     <ClInclude Include="src\duggoo\input\mouse_button_codes.h" />
-    <ClInclude Include="src\duggoo\input\platform\windows_input.h" />
+    <ClInclude Include="src\duggoo\input\platform\opengl_input.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
     <ClInclude Include="src\entry_point.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\duggoo\app\application.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
     <ClCompile Include="src\entry_point.cpp" />
   </ItemGroup>

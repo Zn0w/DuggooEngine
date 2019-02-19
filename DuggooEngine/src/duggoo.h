@@ -9,3 +9,5 @@
 #include "duggoo/event/event.h"
 #include "duggoo/event/key_event.h"
 #include "duggoo/event/mouse_event.h"
+
+#include "duggoo/app/application.h"

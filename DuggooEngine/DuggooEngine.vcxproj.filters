@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="src\entry_point.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
+    <ClCompile Include="src\duggoo\app\application.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
@@ -14,8 +15,9 @@
     <ClInclude Include="src\duggoo\graphics\window.h" />
     <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h" />
     <ClInclude Include="src\duggoo\input\input.h" />
-    <ClInclude Include="src\duggoo\input\platform\windows_input.h" />
     <ClInclude Include="src\duggoo\input\keycodes.h" />
     <ClInclude Include="src\duggoo\input\mouse_button_codes.h" />
+    <ClInclude Include="src\duggoo\input\platform\opengl_input.h" />
+    <ClInclude Include="src\duggoo\app\application.h" />
   </ItemGroup>
 </Project>
