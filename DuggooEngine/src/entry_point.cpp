@@ -5,16 +5,6 @@
 
 #include "duggoo.h"
 
-#include <string>
-
-void onEvent(dg::event::Event event)
-{
-	if (event.type == dg::event::KEY_PRESS)
-	{
-		LOG_INFO("Some key is pressed!");
-	}
-}
-
 void start()
 {
 	// Testing logger
@@ -23,8 +13,6 @@ void start()
 	LOG_WARN("warning message");
 	LOG_ERROR("error message");
 	LOG_FATAL("fatal message");
-	
-	dg::graphics::opengl::setOnEvent(onEvent);
 	
 	if (!dg::graphics::opengl::initWindow(1280, 720, "This is a test!"))
 		return;
