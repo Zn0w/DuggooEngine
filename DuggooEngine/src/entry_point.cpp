@@ -5,6 +5,8 @@
 
 #include "duggoo.h"
 
+#include <iostream>
+
 class SandboxApp : public dg::app::Application
 {
 public:
@@ -16,6 +18,7 @@ public:
 
 	void onUpdate()
 	{
+		// NOTE: maybe carry out basic graphics operations in the application class
 		if (!dg::graphics::opengl::windowClosed())
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -23,6 +26,15 @@ public:
 
 			if (dg::input::isKeyPressed(DG_KEY_F))
 				LOG_INFO("An F key is pressed!");
+			
+			if (dg::input::isMouseButtonPressed(DG_MOUSE_BUTTON_LEFT))
+			{
+				LOG_INFO("Left mouse button is pressed!");
+				
+				int x, y;
+				dg::input::getMousePosition(&x, &y);
+				std::cout << "Mouse coordinates: " << x << "    " << y << std::endl;
+			}
 
 			dg::graphics::opengl::windowRefresh();
 		}

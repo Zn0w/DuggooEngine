@@ -15,6 +15,8 @@ namespace dg { namespace app {
 		auto startTime = std::chrono::steady_clock::now();
 		auto startSec = std::chrono::steady_clock::now();
 
+		// NOTE: the frames check is only for debugging purposes
+
 		int frames = 0;
 
 		while (running)

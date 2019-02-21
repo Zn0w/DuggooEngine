@@ -25,15 +25,13 @@ namespace dg { namespace event {
 	{
 
 	public:
-		int x, y, offsetX, offsetY;
+		int x, y;
 
-		MouseMoveEvent(EventType t, int xPos, int yPos, int offX, int offY)
+		MouseMoveEvent(EventType t, int xPos, int yPos)
 			: Event(t)
 		{
 			x = xPos;
 			y = yPos;
-			offsetX = offX;
-			offsetY = offY;
 		}
 
 	};

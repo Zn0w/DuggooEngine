@@ -10,7 +10,7 @@ namespace dg { namespace event {
 
 		MOUSE_PRESS,
 		MOUSE_RELEASE,
-		MOUSE_MOVE,
+		MOUSE_POSITION,
 		MOUSE_SCROLL,
 
 		WINDOW_RESIZE,
