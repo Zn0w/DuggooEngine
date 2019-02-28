@@ -14,6 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "DuggooEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "DuggooEngine/vendor/Glad/include"
+IncludeDir["glm"] = "DuggooEngine/vendor/glm"
 
 include "DuggooEngine/vendor/GLFW"
 include "DuggooEngine/vendor/Glad"
@@ -35,7 +36,8 @@ project "DuggooEngine"
 	includedirs
 	{
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -92,7 +94,8 @@ project "Sandbox"
 
 	includedirs
 	{
-		"DuggooEngine/src"
+		"DuggooEngine/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

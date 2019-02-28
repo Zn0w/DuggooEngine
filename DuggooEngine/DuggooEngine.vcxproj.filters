@@ -1,23 +1,75 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\entry_point.cpp" />
-    <ClCompile Include="src\duggoo\log\log.cpp" />
-    <ClCompile Include="src\duggoo\app\application.cpp" />
+    <Filter Include="duggoo">
+      <UniqueIdentifier>{8A56A2F9-76F8-CCCF-5FB3-E0234BF45320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\app">
+      <UniqueIdentifier>{DAFCB918-C6B4-FB65-2FBC-D4C11B939656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\event">
+      <UniqueIdentifier>{7B27782F-678A-07D4-1010-408AFC51D356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\graphics">
+      <UniqueIdentifier>{2AB6834D-9641-F111-9F52-74060B5D4D12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\graphics\platform">
+      <UniqueIdentifier>{DE1DB581-CA42-0402-F38D-E991DF110320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\input">
+      <UniqueIdentifier>{2956BC2F-15B9-4BD4-BE3E-848AAA801757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\input\platform">
+      <UniqueIdentifier>{BD2C97F9-2999-52F4-F28C-EA515EB8745C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="duggoo\log">
+      <UniqueIdentifier>{7B2BBA18-67E3-FB65-D0EA-D4C1BCC19656}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\duggoo.h" />
+    <ClInclude Include="src\duggoo\app\application.h">
+      <Filter>duggoo\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\event\event.h">
+      <Filter>duggoo\event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\event\key_event.h">
+      <Filter>duggoo\event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\event\mouse_event.h">
+      <Filter>duggoo\event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h">
+      <Filter>duggoo\graphics\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\window.h">
+      <Filter>duggoo\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\input\input.h">
+      <Filter>duggoo\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\input\keycodes.h">
+      <Filter>duggoo\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\input\mouse_button_codes.h">
+      <Filter>duggoo\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\input\platform\opengl_input.h">
+      <Filter>duggoo\input\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\log\log.h">
+      <Filter>duggoo\log</Filter>
+    </ClInclude>
     <ClInclude Include="src\entry_point.h" />
-    <ClInclude Include="src\duggoo\log\log.h" />
-    <ClInclude Include="src\duggoo\event\event.h" />
-    <ClInclude Include="src\duggoo\event\key_event.h" />
-    <ClInclude Include="src\duggoo\event\mouse_event.h" />
-    <ClInclude Include="src\duggoo\graphics\window.h" />
-    <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h" />
-    <ClInclude Include="src\duggoo\input\input.h" />
-    <ClInclude Include="src\duggoo\input\keycodes.h" />
-    <ClInclude Include="src\duggoo\input\mouse_button_codes.h" />
-    <ClInclude Include="src\duggoo\input\platform\opengl_input.h" />
-    <ClInclude Include="src\duggoo\app\application.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\duggoo\app\application.cpp">
+      <Filter>duggoo\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\duggoo\log\log.cpp">
+      <Filter>duggoo\log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entry_point.cpp" />
   </ItemGroup>
 </Project>
