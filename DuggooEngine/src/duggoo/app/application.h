@@ -6,6 +6,8 @@ namespace dg { namespace app {
 	{
 	public:
 		bool running = false;
+
+		// Struct(containing renderer and maybe window)
 		
 		void start();
 
