@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+#include "../graphics/scene.h"
+
 namespace dg { namespace app {
 	
 	class Application
@@ -8,6 +12,9 @@ namespace dg { namespace app {
 		bool running = false;
 
 		// Struct(containing renderer and maybe window)
+		graphics::Scene currentScene;
+
+		std::vector<graphics::Scene> scenes;
 		
 		void start();
 

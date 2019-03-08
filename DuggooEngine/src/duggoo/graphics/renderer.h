@@ -1,6 +1,10 @@
 #pragma once
 
-struct Renderer
-{
+namespace dg { namespace graphics {
 
-};
+	struct Renderer
+	{
+
+	};
+
+} }
