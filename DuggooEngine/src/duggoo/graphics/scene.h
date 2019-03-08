@@ -10,7 +10,6 @@ namespace dg { namespace graphics {
 	struct Scene
 	{
 		std::vector<entity::Entity*> entities;
-		Renderer* renderer;
 	};
 
 } }

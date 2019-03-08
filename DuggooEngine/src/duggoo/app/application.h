@@ -11,9 +11,7 @@ namespace dg { namespace app {
 	public:
 		bool running = false;
 
-		// Struct(containing renderer and maybe window)
 		graphics::Scene currentScene;
-
 		std::vector<graphics::Scene> scenes;
 		
 		void start();

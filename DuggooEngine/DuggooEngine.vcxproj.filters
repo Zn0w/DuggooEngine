@@ -62,6 +62,9 @@
       <Filter>duggoo\log</Filter>
     </ClInclude>
     <ClInclude Include="src\entry_point.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer.h" />
+    <ClInclude Include="src\duggoo\graphics\scene.h" />
+    <ClInclude Include="src\duggoo\entity\entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
