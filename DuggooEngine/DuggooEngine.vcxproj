@@ -161,6 +161,7 @@
     <ClInclude Include="src\duggoo\input\mouse_button_codes.h" />
     <ClInclude Include="src\duggoo\input\platform\opengl_input.h" />
     <ClInclude Include="src\duggoo\log\log.h" />
+    <ClInclude Include="src\duggoo\math\vector.h" />
     <ClInclude Include="src\entry_point.h" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "../entity/entity.h"
+#include "../math/vector.h"
 
 namespace dg { namespace graphics {
 
@@ -25,11 +25,9 @@ namespace dg { namespace graphics {
 	class Renderer
 	{
 	
-		// Implementation-specific functions
-		void(*prepare) ();
-		void(*draw) (entity::Entity, Shape);
+		virtual void flush() = 0;
 
-		virtual void renderScene(std::vector<entity::Entity*>*) = 0;
+		virtual void render(math::Vector2) = 0;
 
 	};
 

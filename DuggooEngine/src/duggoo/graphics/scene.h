@@ -7,9 +7,13 @@
 
 namespace dg { namespace graphics {
 
-	struct Scene
+	class Scene
 	{
 		std::vector<entity::Entity*> entities;
+
+		Renderer* renderer;
+
+		void draw();
 	};
 
 } }

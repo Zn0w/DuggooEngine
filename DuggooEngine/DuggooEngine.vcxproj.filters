@@ -65,6 +65,7 @@
     <ClInclude Include="src\duggoo\graphics\renderer.h" />
     <ClInclude Include="src\duggoo\graphics\scene.h" />
     <ClInclude Include="src\duggoo\entity\entity.h" />
+    <ClInclude Include="src\duggoo\math\vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
