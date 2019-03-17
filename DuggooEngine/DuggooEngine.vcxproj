@@ -167,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
+    <ClCompile Include="src\duggoo\math\vector.cpp" />
     <ClCompile Include="src\entry_point.cpp" />
   </ItemGroup>
   <ItemGroup>

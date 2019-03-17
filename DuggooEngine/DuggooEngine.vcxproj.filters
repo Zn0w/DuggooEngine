@@ -75,5 +75,6 @@
       <Filter>duggoo\log</Filter>
     </ClCompile>
     <ClCompile Include="src\entry_point.cpp" />
+    <ClCompile Include="src\duggoo\math\vector.cpp" />
   </ItemGroup>
 </Project>
