@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+#include "duggoo/math/matrix.h"
+
 class SandboxApp : public dg::app::Application
 {
 public:
@@ -14,6 +16,27 @@ public:
 	{
 		if (!dg::graphics::opengl::initWindow(1280, 720, "This is a test!"))
 			running = false;
+
+		// Matrix4 test
+		
+		dg::math::Matrix4 m1, m2;
+
+		for (int i = 0; i < 16; i++)
+		{
+			m1.elements[i] = i;
+			m2.elements[i] = i;
+		}
+		
+		dg::math::Matrix4 m = dg::math::multiply(m1, m2);
+		
+		std::cout << dg::math::equals(m1, m2) << std::endl;
+
+		std::cout << dg::math::equals(m, m2) << std::endl;
+
+		std::cout << m.elements[0] << "  " << m.elements[1] << "  " << m.elements[2] << "  " << m.elements[3] << std::endl;
+		std::cout << m.elements[4] << "  " << m.elements[5] << "  " << m.elements[6] << "  " << m.elements[7] << std::endl;
+		std::cout << m.elements[8] << "  " << m.elements[9] << "  " << m.elements[10] << "  " << m.elements[11] << std::endl;
+		std::cout << m.elements[12] << "  " << m.elements[13] << "  " << m.elements[14] << "  " << m.elements[15] << std::endl;
 	}
 
 	void onUpdate()

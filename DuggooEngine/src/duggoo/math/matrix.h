@@ -6,14 +6,17 @@ namespace dg { namespace math {
 
 	struct Matrix4
 	{
-		float elements[4][4];
+		float elements[16];
 
 		Matrix4();
 
 		Matrix4(float diagonalElement);
 	};
 
-	Matrix4 mutliply(Matrix4, Matrix4);
+	// Returns a matrix with main diagonal being 1
+	Matrix4 identity();
+	
+	Matrix4 multiply(Matrix4, Matrix4);
 	bool equals(Matrix4, Matrix4);
 	
 	// Objects (or their parts) that are not in the window boundaries, behind the camera (too near) and too far away will

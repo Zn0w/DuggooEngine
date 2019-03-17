@@ -66,6 +66,7 @@
     <ClInclude Include="src\duggoo\graphics\scene.h" />
     <ClInclude Include="src\duggoo\entity\entity.h" />
     <ClInclude Include="src\duggoo\math\vector.h" />
+    <ClInclude Include="src\duggoo\math\matrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
@@ -76,5 +77,6 @@
     </ClCompile>
     <ClCompile Include="src\entry_point.cpp" />
     <ClCompile Include="src\duggoo\math\vector.cpp" />
+    <ClCompile Include="src\duggoo\math\matrix.cpp" />
   </ItemGroup>
 </Project>
