@@ -152,6 +152,9 @@
     <ClInclude Include="src\duggoo\event\event.h" />
     <ClInclude Include="src\duggoo\event\key_event.h" />
     <ClInclude Include="src\duggoo\event\mouse_event.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_buffer.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.h" />
     <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h" />
     <ClInclude Include="src\duggoo\graphics\renderer.h" />
     <ClInclude Include="src\duggoo\graphics\scene.h" />
@@ -167,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp" />
+    <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_buffer.cpp" />
+    <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.cpp" />
+    <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
     <ClCompile Include="src\duggoo\math\matrix.cpp" />
     <ClCompile Include="src\duggoo\math\vector.cpp" />
