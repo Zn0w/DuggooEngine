@@ -62,7 +62,6 @@
       <Filter>duggoo\log</Filter>
     </ClInclude>
     <ClInclude Include="src\entry_point.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer.h" />
     <ClInclude Include="src\duggoo\graphics\scene.h" />
     <ClInclude Include="src\duggoo\entity\entity.h" />
     <ClInclude Include="src\duggoo\math\vector.h" />
@@ -70,6 +69,8 @@
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_buffer.h" />
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.h" />
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.h" />
+    <ClInclude Include="src\duggoo\graphics\renderable2d.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
