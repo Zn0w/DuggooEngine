@@ -17,17 +17,17 @@ namespace dg { namespace graphics {
 		VertexArray* vertexArray;
 		IndexBuffer* indexBuffer;
 
-	protected:
+	public:
 		Renderable2D(math::Vector3 s_position, math::Vector2 s_size, math::Vector4 s_color)
 			: position(s_position), size(s_size), color(s_color)
 		{
 			vertexArray = new VertexArray();
-			GLfloat vertices[] = 
+			GLfloat vertices[] =						// 4 points, representing rectangle
 			{
 				0, 0, 0,
-				0, position.y, 0,
-				position.x, position.y, 0,
-				position.x, 0, 0
+				0, size.y, 0,
+				size.x, size.y, 0,
+				size.x, 0, 0
 			};
 
 			GLfloat colors[] =
@@ -50,6 +50,9 @@ namespace dg { namespace graphics {
 			delete vertexArray;
 			delete indexBuffer;
 		}
+
+		VertexArray* getVAO() { return vertexArray; }
+		IndexBuffer* getIBO() { return indexBuffer; }
 
 		math::Vector3 getPosition() { return position; };
 		math::Vector2 getSize() { return size; };

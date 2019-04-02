@@ -1,34 +1,16 @@
 #pragma once
 
-#include <vector>
-
 #include "../math/vector.h"
+
+#include "renderable2d.h"
 
 namespace dg { namespace graphics {
 
-	enum Shape
+	class Renderer2D
 	{
-		// This will be edited
-		
-		Pixel,
-		Line,
-		
-		Rectangle,
-		Triangle,
-		Ellipse,
-
-		Cube,
-		Pyramid,
-		Parallelepiped
-	};
-	
-	class Renderer
-	{
-	
+	public:
+		virtual void submit(Renderable2D renderable) = 0;
 		virtual void flush() = 0;
-
-		virtual void render(math::Vector2) = 0;
-
 	};
 
 } }
