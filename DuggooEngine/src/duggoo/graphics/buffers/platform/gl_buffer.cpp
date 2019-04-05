@@ -2,7 +2,7 @@
 
 namespace dg { namespace graphics {
 
-	Buffer::Buffer(GLfloat* data, GLsizei count, GLuint s_componentCount)
+	Buffer::Buffer(GLfloat* data, GLsizei count, GLuint s_componentCount)	// count is the number of elements in the array (buffer)
 	{
 		componentCount = s_componentCount;
 
@@ -20,7 +20,7 @@ namespace dg { namespace graphics {
 
 	void Buffer::unbind()
 	{
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);		// 0 means no buffer (unbind the binded buffer)
 	}
 
 } }

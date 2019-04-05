@@ -8,12 +8,12 @@ namespace dg { namespace graphics {
 	{
 	private:
 		GLuint bufferId;
-		GLuint componentCount;
+		GLuint componentCount;		// The number of elements in one component, e.g. 2.0f, 5.0f, -1.5f, 3.5f can be a 1 vec4, or two vec2s, so the component count specifies it
 	public:
 		Buffer(GLfloat* data, GLsizei count, GLuint s_componentCount);
 
-		void bind();
-		void unbind();
+		void bind();		// Select this buffer (a specific buffer will be selected to be used)
+		void unbind();		// Unselect the buffer
 
 		GLuint getComponentCount() { return componentCount; }
 	};
