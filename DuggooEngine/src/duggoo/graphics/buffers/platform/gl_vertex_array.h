@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+#include "gl_buffer.h"
+
 namespace dg { namespace graphics {
 
 	class VertexArray

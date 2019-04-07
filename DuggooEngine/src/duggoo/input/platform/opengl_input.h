@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../graphics/platform/OpenglWindow.h"
+#include "../../graphics/window/platform/OpenglWindow.h"
 
 namespace dg { namespace input {
 	

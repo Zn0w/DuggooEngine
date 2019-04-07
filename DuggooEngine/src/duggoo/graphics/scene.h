@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "renderer.h"
+//#include "renderer.h"
 #include "../entity/entity.h"
 
 namespace dg { namespace graphics {
@@ -11,7 +11,7 @@ namespace dg { namespace graphics {
 	{
 		std::vector<entity::Entity*> entities;
 
-		Renderer* renderer;
+		//Renderer* renderer;
 
 		void draw();
 	};

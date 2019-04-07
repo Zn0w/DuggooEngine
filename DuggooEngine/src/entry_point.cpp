@@ -1,7 +1,7 @@
 #include "entry_point.h"
 
-#include "duggoo/graphics/window.h"
-#include "duggoo/graphics/platform/OpenglWindow.h"
+#include "duggoo/graphics/window/window.h"
+#include "duggoo/graphics/window/platform/OpenglWindow.h"
 
 #include "duggoo.h"
 

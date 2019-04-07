@@ -1,9 +1,9 @@
 #pragma once
 
-#include "buffers/platform/gl_buffer.h"
-#include "buffers/platform/gl_indexbuffer.h"
-#include "buffers/platform/gl_vertex_array.h"
-#include "../math/vector.h"
+#include "../buffers/platform/gl_buffer.h"
+#include "../buffers/platform/gl_indexbuffer.h"
+#include "../buffers/platform/gl_vertex_array.h"
+#include "../../math/vector.h"
 
 namespace dg { namespace graphics {
 

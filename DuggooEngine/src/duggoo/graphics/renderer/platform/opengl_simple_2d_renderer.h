@@ -4,7 +4,7 @@
 
 #include <glad/glad.h>
 
-#include "renderer2d.h"
+#include "../renderer2d.h"
 
 namespace dg { namespace graphics {
 

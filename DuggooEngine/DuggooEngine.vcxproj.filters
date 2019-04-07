@@ -40,12 +40,6 @@
     <ClInclude Include="src\duggoo\event\mouse_event.h">
       <Filter>duggoo\event</Filter>
     </ClInclude>
-    <ClInclude Include="src\duggoo\graphics\platform\OpenglWindow.h">
-      <Filter>duggoo\graphics\platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\duggoo\graphics\window.h">
-      <Filter>duggoo\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\duggoo\input\input.h">
       <Filter>duggoo\input</Filter>
     </ClInclude>
@@ -69,9 +63,17 @@
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_buffer.h" />
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.h" />
     <ClInclude Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.h" />
-    <ClInclude Include="src\duggoo\graphics\renderable2d.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer2d.h" />
-    <ClInclude Include="src\duggoo\graphics\opengl_simple_2d_renderer.h" />
+    <ClInclude Include="src\duggoo\graphics\shader.h" />
+    <ClInclude Include="src\duggoo\graphics\window\window.h">
+      <Filter>duggoo\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\window\platform\OpenglWindow.h">
+      <Filter>duggoo\graphics\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\duggoo\graphics\renderer\platform\opengl_simple_2d_renderer.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer\renderer.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer\renderer2d.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer\renderable2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
@@ -86,6 +88,7 @@
     <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_buffer.cpp" />
     <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.cpp" />
     <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.cpp" />
-    <ClCompile Include="src\duggoo\graphics\opengl_simple_2d_renderer.cpp" />
+    <ClCompile Include="src\duggoo\graphics\renderer\platform\opengl_simple_2d_renderer.cpp" />
+    <ClCompile Include="src\duggoo\graphics\renderer\renderer.cpp" />
   </ItemGroup>
 </Project>
