@@ -71,9 +71,13 @@
       <Filter>duggoo\graphics\platform</Filter>
     </ClInclude>
     <ClInclude Include="src\duggoo\graphics\renderer\platform\opengl_simple_2d_renderer.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer\renderer.h" />
+    <ClInclude Include="src\duggoo\math\math.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\vertex_array.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\index_buffer.h" />
+    <ClInclude Include="src\duggoo\graphics\buffers\buffer.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer\render_object2d.h" />
+    <ClInclude Include="src\duggoo\graphics\renderer\platform\renderable2d.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\renderer2d.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer\renderable2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\duggoo\app\application.cpp">
@@ -89,6 +93,5 @@
     <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_indexbuffer.cpp" />
     <ClCompile Include="src\duggoo\graphics\buffers\platform\gl_vertex_array.cpp" />
     <ClCompile Include="src\duggoo\graphics\renderer\platform\opengl_simple_2d_renderer.cpp" />
-    <ClCompile Include="src\duggoo\graphics\renderer\renderer.cpp" />
   </ItemGroup>
 </Project>
