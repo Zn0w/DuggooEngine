@@ -1,4 +1,4 @@
-#include "opengl_simple_2d_renderer.h"
+#include "gl_simple_2d_renderer.h"
 
 namespace dg { namespace graphics {
 
