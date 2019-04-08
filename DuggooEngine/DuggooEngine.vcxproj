@@ -161,7 +161,7 @@
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_render_object2d.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_renderer2d.h" />
     <ClInclude Include="src\duggoo\graphics\scene.h" />
-    <ClInclude Include="src\duggoo\graphics\shader.h" />
+    <ClInclude Include="src\duggoo\graphics\shader\shader.h" />
     <ClInclude Include="src\duggoo\graphics\window\window.h" />
     <ClInclude Include="src\duggoo\input\input.h" />
     <ClInclude Include="src\duggoo\input\keycodes.h" />
@@ -171,6 +171,7 @@
     <ClInclude Include="src\duggoo\math\math.h" />
     <ClInclude Include="src\duggoo\math\matrix.h" />
     <ClInclude Include="src\duggoo\math\vector.h" />
+    <ClInclude Include="src\duggoo\utils\file_io.h" />
     <ClInclude Include="src\entry_point.h" />
   </ItemGroup>
   <ItemGroup>
