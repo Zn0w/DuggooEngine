@@ -161,7 +161,7 @@
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_render_object2d.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_renderer2d.h" />
     <ClInclude Include="src\duggoo\graphics\scene.h" />
-    <ClInclude Include="src\duggoo\graphics\shader\shader.h" />
+    <ClInclude Include="src\duggoo\graphics\shader\opengl\gl_shader.h" />
     <ClInclude Include="src\duggoo\graphics\window\window.h" />
     <ClInclude Include="src\duggoo\input\input.h" />
     <ClInclude Include="src\duggoo\input\keycodes.h" />
@@ -180,6 +180,7 @@
     <ClCompile Include="src\duggoo\graphics\buffers\opengl\gl_indexbuffer.cpp" />
     <ClCompile Include="src\duggoo\graphics\buffers\opengl\gl_vertex_array.cpp" />
     <ClCompile Include="src\duggoo\graphics\renderer\opengl\gl_simple_2d_renderer.cpp" />
+    <ClCompile Include="src\duggoo\graphics\shader\opengl\gl_shader.cpp" />
     <ClCompile Include="src\duggoo\log\log.cpp" />
     <ClCompile Include="src\duggoo\math\matrix.cpp" />
     <ClCompile Include="src\duggoo\math\vector.cpp" />
