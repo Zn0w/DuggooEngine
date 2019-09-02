@@ -2,7 +2,7 @@
 
 namespace dg { namespace graphics {
 
-	void SimpleRenderer2D::submit(Renderable2D renderable)
+	void SimpleRenderer2D::submit(Renderable2D* renderable)
 	{
 		renderQueue.push_back(renderable);
 	}
@@ -11,14 +11,14 @@ namespace dg { namespace graphics {
 	{
 		while (!renderQueue.empty())
 		{
-			Renderable2D renderable = renderQueue.front();
-			renderable.getVAO()->bind();
-			renderable.getIBO()->bind();
+			Renderable2D* renderable = renderQueue.front();
+			renderable->getVAO()->bind();
+			renderable->getIBO()->bind();
 			
-			glDrawElements(GL_TRIANGLES, renderable.getIBO()->getCount(), GL_UNSIGNED_SHORT, nullptr);
+			glDrawElements(GL_TRIANGLES, renderable->getIBO()->getCount(), GL_UNSIGNED_SHORT, nullptr);
 			
-			renderable.getIBO()->unbind();
-			renderable.getVAO()->unbind();
+			renderable->getIBO()->unbind();
+			renderable->getVAO()->unbind();
 		}
 	}
 

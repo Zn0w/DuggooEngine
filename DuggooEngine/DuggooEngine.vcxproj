@@ -156,7 +156,6 @@
     <ClInclude Include="src\duggoo\graphics\buffers\opengl\gl_indexbuffer.h" />
     <ClInclude Include="src\duggoo\graphics\buffers\opengl\gl_vertex_array.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_simple_2d_renderer.h" />
-    <ClInclude Include="src\duggoo\graphics\renderer\opengl\render_object2d.h" />
     <ClInclude Include="src\duggoo\graphics\window\platform\OpenglWindow.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_render_object2d.h" />
     <ClInclude Include="src\duggoo\graphics\renderer\opengl\gl_renderer2d.h" />

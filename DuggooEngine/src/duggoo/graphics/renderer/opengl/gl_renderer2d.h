@@ -9,7 +9,7 @@ namespace dg { namespace graphics {
 	class Renderer2D
 	{
 	public:
-		virtual void submit(Renderable2D renderObject) = 0;
+		virtual void submit(Renderable2D* renderObject) = 0;
 		virtual void flush() = 0;
 	};
 

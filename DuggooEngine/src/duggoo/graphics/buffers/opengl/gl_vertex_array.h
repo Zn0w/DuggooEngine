@@ -9,7 +9,7 @@ namespace dg { namespace graphics {
 	class VertexArray
 	{
 	private:
-		GLuint arrayId;
+		GLuint* arrayId;
 		std::vector<Buffer*> buffers;
 
 	public:

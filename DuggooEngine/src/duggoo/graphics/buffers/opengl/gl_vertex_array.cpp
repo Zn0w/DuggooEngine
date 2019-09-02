@@ -10,13 +10,13 @@ namespace dg { namespace graphics {
 
 	VertexArray::VertexArray()
 	{
-		glGenVertexArrays(1, &arrayId);
+		glGenVertexArrays(1, arrayId);
 	}
 
 	VertexArray::~VertexArray()
 	{
-		for (int i = 0; i < buffers.size(); i++)
-			delete buffers[i];
+		//for (int i = 0; i < buffers.size(); i++)
+			//delete buffers[i];
 	}
 
 	void VertexArray::addBuffer(Buffer* buffer, GLuint index)
@@ -33,7 +33,7 @@ namespace dg { namespace graphics {
 	
 	void VertexArray::bind()
 	{
-		glBindVertexArray(arrayId);
+		glBindVertexArray(*arrayId);
 	}
 
 	void VertexArray::unbind()
