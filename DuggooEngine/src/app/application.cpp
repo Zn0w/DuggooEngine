@@ -1,56 +1,30 @@
 #include "application.h"
 
-#include <chrono>
-
-#include <iostream>
-
 namespace dg { namespace app {
 
-	void Application::start()
+void Application::start()
+{
+	// init other systems (maybe not here)
+	
+	running = true;
+	onInit();
+
+	while (running)
 	{
-		running = true;
+		// update other systems (e.g. physics system) (maybe not here)
+		renderer.render();
 
-		onInit();
-
-		auto startTime = std::chrono::steady_clock::now();
-		auto startSec = std::chrono::steady_clock::now();
-
-		// NOTE: the frames check is only for debugging purposes
-
-		int frames = 0;
-
-		while (running)
-		{
-			// handle time
-			auto endTime = std::chrono::steady_clock::now();
-			auto endSec = std::chrono::steady_clock::now();
-			std::chrono::duration<double, std::milli> elapsedTime = endTime - startTime;
-			std::chrono::duration<double, std::milli> elapsedTimeSec = endSec - startSec;
-			//startTime = std::chrono::steady_clock::now();
-
-			if (elapsedTimeSec.count() >= 1000.0)
-			{
-				frames = 0;
-				startSec = std::chrono::steady_clock::now();
-			}
-			
-			// 67 frames per second
-			if (elapsedTime.count() < 15.0)
-				continue;
-
-			startTime = std::chrono::steady_clock::now();
-			frames++;
-			
-			onUpdate();
-			std::cout << frames << std::endl;
-		}
-
-		onDestroy();
+		onUpdate();
 	}
 
-	void Application::onDestroy()
-	{
-		
-	}
+	onDestroy();
+
+	stop();
+}
+
+void Application::stop()
+{
+	// stop other systems (maybe not here)
+}
 
 } }

@@ -1,4 +1,28 @@
-#include <GLFW/glfw3.h>
+// This file is made for testing purposes
+#include "src/app/application.h"
+
+class TestApplication : public dg::app::Application
+{
+public:
+	void onInit() {}
+	void onUpdate() {}
+	void onDestroy() {}
+};
+
+TestApplication myApp;
+
+int main()
+{
+	// start up engine systems in the correct order (it will be put in a seperate engine file e.g. SystemsManager.h)
+
+	myApp.start();
+
+	//shut down the systems in reverse order (it will be put in a seperate engine file e.g. SystemsManager.h)
+
+	return 0;
+}
+
+/*#include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
 static void error_callback(int error, const char* description)
@@ -52,4 +76,4 @@ int main(void)
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	exit(EXIT_SUCCESS);
-}
+}*/

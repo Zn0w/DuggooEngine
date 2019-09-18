@@ -1,21 +1,23 @@
 #pragma once
 
-#include <vector>
-
-#include "../graphics/scene.h"
+#include "../graphics/render/renderer.h"
 
 namespace dg { namespace app {
 	
+	// NOTE: may be renamed after other components of the engine are introduced
 	class Application
 	{
+	private:
+		graphics::Renderer renderer;
+
 	public:
 		bool running = false;
-
-		graphics::Scene currentScene;
-		std::vector<graphics::Scene> scenes;
+		
 		
 		void start();
+		void stop();
 
+		// Game-specific
 		virtual void onInit() = 0;
 		virtual void onUpdate() = 0;
 		virtual void onDestroy() = 0;
