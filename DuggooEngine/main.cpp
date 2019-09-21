@@ -1,55 +1,44 @@
 // This file is made for testing purposes
 #include "src/app/application.h"
 
+#include <GLFW/glfw3.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+
+// GLFW callback func dec
+static void error_callback(int error, const char* description);
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
+
 class TestApplication : public dg::app::Application
 {
 public:
-	void onInit() {}
-	void onUpdate() {}
-	void onDestroy() {}
-};
-
-TestApplication myApp;
-
-int main()
-{
-	// start up engine systems in the correct order (it will be put in a seperate engine file e.g. SystemsManager.h)
-
-	myApp.start();
-
-	//shut down the systems in reverse order (it will be put in a seperate engine file e.g. SystemsManager.h)
-
-	return 0;
-}
-
-/*#include <GLFW/glfw3.h>
-#include <stdlib.h>
-#include <stdio.h>
-static void error_callback(int error, const char* description)
-{
-	fputs(description, stderr);
-}
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
-}
-int main(void)
-{
 	GLFWwindow* window;
-	glfwSetErrorCallback(error_callback);
-	if (!glfwInit())
-		exit(EXIT_FAILURE);
-	window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
-	if (!window)
+
+	void onInit()
 	{
-		glfwTerminate();
-		exit(EXIT_FAILURE);
+		glfwSetErrorCallback(error_callback);
+		if (!glfwInit())
+			exit(EXIT_FAILURE);
+		window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+		if (!window)
+		{
+			glfwTerminate();
+			exit(EXIT_FAILURE);
+		}
+		glfwMakeContextCurrent(window);
+		glfwSetKeyCallback(window, key_callback);
 	}
-	glfwMakeContextCurrent(window);
-	glfwSetKeyCallback(window, key_callback);
-	while (!glfwWindowShouldClose(window))
+
+	void onUpdate()
 	{
+		if (glfwWindowShouldClose(window))
+		{
+			running = false;
+			return;
+		}
+
 		float ratio;
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
@@ -73,7 +62,34 @@ int main(void)
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-	glfwDestroyWindow(window);
-	glfwTerminate();
-	exit(EXIT_SUCCESS);
-}*/
+
+	void onDestroy()
+	{
+		glfwDestroyWindow(window);
+		glfwTerminate();
+	}
+};
+
+TestApplication myApp;
+
+int main()
+{
+	// start up engine systems in the correct order (it will be put in a seperate engine file e.g. SystemsManager.h)
+
+	myApp.start();
+
+	//shut down the systems in reverse order (it will be put in a seperate engine file e.g. SystemsManager.h)
+
+	return 0;
+}
+
+static void error_callback(int error, const char* description)
+{
+	fputs(description, stderr);
+}
+
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+}
