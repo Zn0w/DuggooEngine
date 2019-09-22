@@ -1,5 +1,8 @@
 #pragma once
 
+#include <chrono>
+#include <iostream>
+
 #include "../graphics/render/renderer.h"
 
 namespace dg { namespace app {
