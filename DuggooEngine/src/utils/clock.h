@@ -2,22 +2,24 @@
 
 #pragma once
 
-namespace dg {
+#include <glfw/glfw3.h>
+
+namespace dg { namespace clock {
 	
 	class Clock
 	{
-	public:
-		// returns time in seconds
-		float getTime()
-		{
-			return glfwGetTime();
-		}
+	private:
+		float last_frame_time = 0.0f;
 
-		// returns time in milliseconds
-		float getTimeMs()
+	public:
+		float getDeltaTime()
 		{
-			return glfwGetTime() * 1000.0f;
+			float time = (float) glfwGetTime();
+			float delta_time = time - last_frame_time;
+			last_frame_time = time;
+
+			return delta_time;
 		}
 	};
 
-}
+} }

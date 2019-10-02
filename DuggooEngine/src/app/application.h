@@ -1,7 +1,6 @@
 #pragma once
 
 #include <chrono>
-#include <iostream>
 
 #include "../graphics/render/renderer.h"
 #include "../utils/clock.h"
@@ -13,7 +12,7 @@ namespace dg { namespace app {
 	{
 	private:
 		graphics::Renderer renderer;
-		Clock clock;
+		clock::Clock clock;
 
 	public:
 		bool running = false;
@@ -26,7 +25,7 @@ namespace dg { namespace app {
 
 		// Game-specific
 		virtual void onInit() = 0;
-		virtual void onUpdate() = 0;
+		virtual void onUpdate(float delta_time) = 0;
 		virtual void onDestroy() = 0;
 	};
 

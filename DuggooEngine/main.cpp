@@ -31,8 +31,10 @@ public:
 		glfwSetKeyCallback(window, key_callback);
 	}
 
-	void onUpdate()
+	void onUpdate(float delta_time)
 	{
+		printf("Delta time: %fs  (%fms)\n", delta_time, delta_time * 1000.0f);
+		
 		if (glfwWindowShouldClose(window))
 		{
 			running = false;
