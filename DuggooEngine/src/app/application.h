@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "../graphics/render/renderer.h"
+#include "../utils/clock.h"
 
 namespace dg { namespace app {
 	
@@ -12,10 +13,13 @@ namespace dg { namespace app {
 	{
 	private:
 		graphics::Renderer renderer;
+		Clock clock;
 
 	public:
 		bool running = false;
 		
+		Application() {}
+		~Application() {}
 		
 		void start();
 		void stop();
