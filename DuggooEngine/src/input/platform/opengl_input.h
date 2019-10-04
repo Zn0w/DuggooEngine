@@ -6,7 +6,7 @@ namespace dg { namespace input {
 	
 	bool isKeyPressedImpl(int keycode)
 	{
-		int state = glfwGetKey(graphics::opengl::window.windowHandle, keycode);
+		int state = glfwGetKey(graphics::window::window.windowHandle, keycode);
 		return state == GLFW_PRESS;
 	}
 
@@ -15,7 +15,7 @@ namespace dg { namespace input {
 	{
 		// NOTE: workaround for converting double pointers to int pointers (temporary solution)
 		double xpos, ypos;
-		glfwGetCursorPos(graphics::opengl::window.windowHandle, &xpos, &ypos);
+		glfwGetCursorPos(graphics::window::window.windowHandle, &xpos, &ypos);
 		
 		int sx, sy;
 		sx = xpos;
@@ -27,7 +27,7 @@ namespace dg { namespace input {
 
 	bool isMouseButtonPressedImpl(int mouseButtonCode)
 	{
-		int state = glfwGetMouseButton(graphics::opengl::window.windowHandle, mouseButtonCode);
+		int state = glfwGetMouseButton(graphics::window::window.windowHandle, mouseButtonCode);
 		return state == GLFW_PRESS;
 	}
 

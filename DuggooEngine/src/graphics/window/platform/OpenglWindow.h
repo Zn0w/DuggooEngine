@@ -2,15 +2,15 @@
 
 #include "../window.h"
 
-#include "../../event/key_event.h"
-#include "../../event/mouse_event.h"
+//#include "../../event/key_event.h"
+//#include "../../event/mouse_event.h"
 
-#include <glad/glad.h>
+//#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
 
-namespace dg { namespace graphics { namespace opengl {
+namespace dg { namespace graphics { namespace window {
 
 	struct OpenglWindow
 	{
@@ -25,7 +25,7 @@ namespace dg { namespace graphics { namespace opengl {
 		window.windowData.width = width;
 		window.windowData.height = height;
 		window.windowData.title = title;
-		
+
 		if (!glfwInit())
 			return false;
 
@@ -43,7 +43,7 @@ namespace dg { namespace graphics { namespace opengl {
 
 		glfwMakeContextCurrent(window.windowHandle);
 
-		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);		// NOTE: In order to be able to use opengl functions
+		//gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);		// NOTE: In order to be able to use opengl functions
 
 		return true;
 	}
@@ -62,6 +62,7 @@ namespace dg { namespace graphics { namespace opengl {
 
 	void windowDestroy()
 	{
+		glfwDestroyWindow(window.windowHandle);
 		glfwTerminate();
 	}
 
