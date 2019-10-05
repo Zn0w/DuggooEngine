@@ -4,12 +4,7 @@
 #include <stdio.h>
 
 #include "src/duggoo.h"
-#include "src/graphics/window/platform/OpenglWindow.h"
-
-
-// GLFW callback func dec
-static void error_callback(int error, const char* description);
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+#include "src/graphics/window/window.h"
 
 
 class TestApplication : public dg::app::Application
@@ -20,7 +15,7 @@ public:
 
 	void onInit()
 	{
-		if (!dg::graphics::window::initWindow(640, 480, "Test Application"))
+		if (!dg::graphics::initWindow(640, 480, "Test Application"))
 			printf("GLFW failed\n");
 	}
 
@@ -29,14 +24,14 @@ public:
 		if (debug)
 			printf("Delta time: %fs  (%fms)\tFPS: %.0f\n", delta_time, delta_time * 1000.0f, 1.0 / delta_time);
 
-		if (dg::graphics::window::windowClosed())
+		if (dg::graphics::windowClosed())
 		{
 			running = false;
 			return;
 		}
 
 		float ratio;
-		int width = dg::graphics::window::window.windowData.width, height = dg::graphics::window::window.windowData.height;
+		int width = dg::graphics::window.width, height = dg::graphics::window.height;
 		ratio = width / (float)height;
 		glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -54,7 +49,7 @@ public:
 		glColor3f(0.f, 0.f, 1.f);
 		glVertex3f(0.f, 0.6f, 0.f);
 		glEnd();
-		dg::graphics::window::windowRefresh();
+		dg::graphics::windowRefresh();
 
 		if (dg::input::isKeyPressed(DG_KEY_G))
 		{
@@ -67,7 +62,7 @@ public:
 
 	void onDestroy()
 	{
-		dg::graphics::window::windowDestroy();
+		dg::graphics::windowDestroy();
 	}
 };
 

@@ -1,5 +1,6 @@
 #include "application.h"
 
+
 namespace dg { namespace app {
 
 void Application::start()
