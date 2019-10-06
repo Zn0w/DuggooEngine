@@ -3,7 +3,7 @@
 //#include "../../event/key_event.h"
 //#include "../../event/mouse_event.h"
 
-//#include <glad/glad.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -43,7 +43,11 @@ namespace dg { namespace graphics {
 
 		glfwMakeContextCurrent(window.windowHandle);
 
-		//gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);		// NOTE: In order to be able to use opengl functions
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			std::cout << "Failed to init GLAD" << std::endl;
+			return false;
+		}
 
 		return true;
 	}

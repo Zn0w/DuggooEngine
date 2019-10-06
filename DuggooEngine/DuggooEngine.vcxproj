@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\dependencies\GLAD\src\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\app\application.cpp" />
   </ItemGroup>
@@ -91,8 +92,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\work\projects\DuggooEngine\dependencies\GLFW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -115,8 +116,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
