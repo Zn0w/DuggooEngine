@@ -1,10 +1,5 @@
 #pragma once
 
-#ifdef _WIN32
-#define DG_PLATFORM_WINDOWS
-#endif
-// other platforms are not supported right now
-
 #include "log/log.h"
 
 #include "app/application.h"
@@ -16,3 +11,5 @@
 #include "event/event.h"
 #include "event/key_event.h"
 #include "event/mouse_event.h"
+
+#include "entity/entity.h"

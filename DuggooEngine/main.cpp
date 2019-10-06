@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 #include "src/duggoo.h"
-#include "src/graphics/window/window.h"
 
 
 class TestApplication : public dg::app::Application
@@ -13,30 +12,19 @@ public:
 	GLFWwindow* window;
 	bool debug = false;
 
+	TestApplication()
+		: dg::app::Application(dg::graphics::WindowProperties(1280, 720, false, false, "Test Application"), dg::app::OPENGL_2D)
+	{}
+
 	void onInit()
 	{
-		if (!dg::graphics::initWindow(640, 480, "Test Application"))
-			printf("GLFW failed\n");
+		// init game logci stuff
 	}
 
 	void onUpdate(float delta_time)
 	{
 		if (debug)
 			printf("Delta time: %fs  (%fms)\tFPS: %.0f\n", delta_time, delta_time * 1000.0f, 1.0 / delta_time);
-
-		if (dg::graphics::windowClosed())
-		{
-			running = false;
-			return;
-		}
-
-		int width = dg::graphics::window.width;
-		int height = dg::graphics::window.height;
-		glViewport(0, 0, width, height);
-		glClearColor(0.0f, 0.3f, 0.5f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		dg::graphics::windowRefresh();
 
 		if (dg::input::isKeyPressed(DG_KEY_G))
 		{
@@ -45,11 +33,13 @@ public:
 			else
 				debug = true;
 		}
+
+		// game logic update
 	}
 
 	void onDestroy()
 	{
-		dg::graphics::windowDestroy();
+		// save game state, etc
 	}
 };
 

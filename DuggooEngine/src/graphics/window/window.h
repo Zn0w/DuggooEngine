@@ -11,28 +11,34 @@
 
 namespace dg { namespace graphics {
 
+	struct WindowProperties
+	{
+		int width, height;
+		bool vsync, fullscreen;
+		const char* title;
+
+		WindowProperties(int w_width, int w_height, bool w_vsync, bool w_fullscreen, const char* w_title)
+			: width(w_width), height(w_height), vsync(w_vsync), fullscreen(w_fullscreen), title(w_title)
+		{}
+	};
+	
 	struct Window
 	{
-		int x, y, width, height;
-		const char* title;
+		WindowProperties properties;
 		GLFWwindow* windowHandle;
 	};
 
 	static Window window;
 
-	bool initWindow(int width, int height, const char* title)
+	bool initWindow()
 	{
-		window.width = width;
-		window.height = height;
-		window.title = title;
-
 		if (!glfwInit())
 			return false;
 
 		window.windowHandle = glfwCreateWindow(
-												window.width,
-												window.height,
-												window.title,
+												window.properties.width,
+												window.properties.height,
+												window.properties.title,
 												NULL, NULL
 											  );
 		if (!window.windowHandle)

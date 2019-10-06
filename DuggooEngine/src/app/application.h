@@ -1,23 +1,32 @@
 #pragma once
 
+#include <stdio.h>
+
+#include "../graphics/window/window.h"
 #include "../graphics/render/renderer.h"
 #include "../utils/clock.h"
 
 
 namespace dg { namespace app {
 	
-	// NOTE: may be renamed after other components of the engine are introduced
+	enum RenderType
+	{
+		OPENGL_2D,
+		OPENGL_3D,
+		CUSTOM
+	};
+
 	class Application
 	{
+	public:
+		bool running = false;
 	private:
 		graphics::Renderer renderer;
 		clock::Clock clock;
 
 	public:
-		bool running = false;
-		
-		Application() {}
-		~Application() {}
+		Application(graphics::WindowProperties, RenderType);
+		~Application();
 		
 		void start();
 		void stop();
