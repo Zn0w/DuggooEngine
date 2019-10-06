@@ -1,36 +1,27 @@
 #pragma once
 
-#include "../graphics/window/window.h"
+#include "GLFW/glfw3.h"
+
 
 namespace dg { namespace input {
 	
-	bool isKeyPressed(int keycode)
+	class Input
 	{
-		int state = glfwGetKey(graphics::window.windowHandle, keycode);
-		return state == GLFW_PRESS;
-	}
+	private:
+		GLFWwindow* window;
 
-	// NOTE: possibly the return value of this function will be a vertex of x and y in the future
-	void getMousePosition(int* x, int* y)
-	{
-		// NOTE: workaround for converting double pointers to int pointers (temporary solution)
-		double xpos, ypos;
-		glfwGetCursorPos(graphics::window.windowHandle, &xpos, &ypos);
+	public:
+		void setWindow(GLFWwindow* handle) { window = handle; }
 		
-		int sx, sy;
-		sx = xpos;
-		sy = ypos;
+		bool isKeyPressed(int keycode);
+		bool isKeyReleased(int keycode);
 
-		*x = sx;
-		*y = sy;
-	}
+		// NOTE: possibly the return value of this function will be a vertex of x and y in the future
+		void getMousePosition(int* x, int* y);
 
-	bool isMouseButtonPressed(int mouseButtonCode)
-	{
-		int state = glfwGetMouseButton(graphics::window.windowHandle, mouseButtonCode);
-		return state == GLFW_PRESS;
-	}
+		bool isMouseButtonPressed(int mouseButtonCode);
 
-	// NOTE: mouse scrolled event will be added in the future
+		// NOTE: mouse scrolled event will be added in the future
+	};
 
 } }

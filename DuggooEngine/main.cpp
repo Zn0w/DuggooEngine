@@ -8,25 +8,23 @@
 
 class TestApplication : public dg::app::Application
 {
-public:
-	GLFWwindow* window;
 	bool debug = false;
-
+public:
 	TestApplication()
-		: dg::app::Application(dg::graphics::WindowProperties(1280, 720, false, false, "Test Application"), dg::app::OPENGL_2D)
+		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D)
 	{}
 
 	void onInit()
 	{
-		// init game logci stuff
+		// init game logic stuff
 	}
 
 	void onUpdate(float delta_time)
 	{
 		if (debug)
 			printf("Delta time: %fs  (%fms)\tFPS: %.0f\n", delta_time, delta_time * 1000.0f, 1.0 / delta_time);
-
-		if (dg::input::isKeyPressed(DG_KEY_G))
+		
+		if (input.isKeyReleased(DG_KEY_G))
 		{
 			if (debug)
 				debug = false;

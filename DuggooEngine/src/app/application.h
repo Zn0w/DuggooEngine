@@ -5,6 +5,7 @@
 #include "../graphics/window/window.h"
 #include "../graphics/render/renderer.h"
 #include "../utils/clock.h"
+#include "../input/input.h"
 
 
 namespace dg { namespace app {
@@ -23,6 +24,9 @@ namespace dg { namespace app {
 	private:
 		graphics::Renderer renderer;
 		clock::Clock clock;
+		graphics::Window window;
+	protected:
+		input::Input input;
 
 	public:
 		Application(graphics::WindowProperties, RenderType);

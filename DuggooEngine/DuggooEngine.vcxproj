@@ -22,6 +22,8 @@
     <ClCompile Include="..\dependencies\GLAD\src\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\app\application.cpp" />
+    <ClCompile Include="src\graphics\window\window.cpp" />
+    <ClCompile Include="src\input\input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\render\renderer.h" />

@@ -16,7 +16,7 @@ Application::Application(graphics::WindowProperties properties, RenderType rende
 		break;
 	}
 
-	graphics::window.properties = properties;
+	window.properties = properties;
 }
 
 Application::~Application()
@@ -28,27 +28,29 @@ void Application::start()
 {
 	// init other systems (maybe not here)
 	
-	if (!dg::graphics::initWindow())
+	if (!window.init())
 	{
 		printf("GLFW failed\n");
 		return;
 	}
 
+	input.setWindow(window.windowHandle);
+
 	running = true;
 	onInit();
 
 	float last_frame_time = 0.0f;
-	while (running && !dg::graphics::windowClosed())
+	while (running && !window.isClosed())
 	{	
 		onUpdate(clock.getDeltaTime());
 
 		// update other systems (e.g. physics system) (maybe not here)
 		renderer.render();
 
-		dg::graphics::windowRefresh();
+		window.refresh();
 	}
 
-	graphics::windowDestroy();
+	window.destroy();
 
 	onDestroy();
 
