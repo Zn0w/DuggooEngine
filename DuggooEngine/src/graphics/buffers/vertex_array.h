@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "gl_buffer.h"
+#include "buffer.h"
 
 namespace dg { namespace graphics {
 

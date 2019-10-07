@@ -1,4 +1,4 @@
-#include "gl_indexbuffer.h"
+#include "indexbuffer.h"
 
 namespace dg { namespace graphics {
 

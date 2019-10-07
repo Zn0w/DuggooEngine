@@ -1,10 +1,10 @@
-#include "gl_vertex_array.h"
+#include "vertex_array.h"
 
 #include <vector>
 
 #include <glad/glad.h>
 
-#include "gl_buffer.h"
+#include "buffer.h"
 
 namespace dg { namespace graphics {
 
