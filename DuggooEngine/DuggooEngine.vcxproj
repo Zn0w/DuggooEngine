@@ -22,12 +22,19 @@
     <ClCompile Include="..\dependencies\GLAD\src\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\app\application.cpp" />
+    <ClCompile Include="src\graphics\render\render.cpp" />
+    <ClCompile Include="src\graphics\render\shader.cpp" />
     <ClCompile Include="src\graphics\window\window.cpp" />
     <ClCompile Include="src\input\input.cpp" />
+    <ClCompile Include="src\utils\file_io.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\render\renderer.h" />
+    <ClInclude Include="src\graphics\render\shader.h" />
     <ClInclude Include="src\utils\clock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\test.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -95,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\work\projects\DuggooEngine\dependencies\GLFW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -119,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

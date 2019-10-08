@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "src/duggoo.h"
+#include "src/app/application.h"
+#include "src/input/keycodes.h"
 
 
 class TestApplication : public dg::app::Application

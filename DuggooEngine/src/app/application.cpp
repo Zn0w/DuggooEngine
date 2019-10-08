@@ -39,13 +39,15 @@ void Application::start()
 	running = true;
 	onInit();
 
+	graphics::Shader test_shader("res/shaders/test.shader");
+
 	float last_frame_time = 0.0f;
 	while (running && !window.isClosed())
 	{	
 		onUpdate(clock.getDeltaTime());
 
 		// update other systems (e.g. physics system) (maybe not here)
-		renderer.render();
+		//renderer.render();
 
 		window.refresh();
 	}

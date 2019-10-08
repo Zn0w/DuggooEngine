@@ -7,7 +7,6 @@
 #include "../utils/clock.h"
 #include "../input/input.h"
 
-
 namespace dg { namespace app {
 	
 	enum RenderType
