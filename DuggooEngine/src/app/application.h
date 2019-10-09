@@ -21,7 +21,7 @@ namespace dg { namespace app {
 	public:
 		bool running = false;
 	private:
-		graphics::Renderer renderer;
+		//graphics::Renderer renderer;
 		clock::Clock clock;
 		graphics::Window window;
 	protected:

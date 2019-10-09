@@ -11,7 +11,7 @@ namespace dg { namespace graphics {
 	class Renderer
 	{
 	public:
-		void render(const VertexArray& va, const IndexBuffer& ib, const Shader& shader);
+		void render(VertexArray& va, IndexBuffer& ib, Shader& shader);
 	};
 
 } }

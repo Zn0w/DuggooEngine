@@ -8,6 +8,8 @@
 #include "../../utils/file_io.h"
 
 
+// TODO: cache uniform locations in unordered map
+
 namespace dg { namespace graphics {
 
 	class Shader

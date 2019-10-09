@@ -22,16 +22,41 @@
     <ClCompile Include="..\dependencies\GLAD\src\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\app\application.cpp" />
+    <ClCompile Include="src\graphics\buffers\buffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\indexbuffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\vertex_array.cpp" />
     <ClCompile Include="src\graphics\render\render.cpp" />
     <ClCompile Include="src\graphics\render\shader.cpp" />
     <ClCompile Include="src\graphics\window\window.cpp" />
     <ClCompile Include="src\input\input.cpp" />
+    <ClCompile Include="src\log\log.cpp" />
+    <ClCompile Include="src\math\matrix.cpp" />
+    <ClCompile Include="src\math\vector.cpp" />
     <ClCompile Include="src\utils\file_io.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\app\application.h" />
+    <ClInclude Include="src\duggoo.h" />
+    <ClInclude Include="src\entity\entity.h" />
+    <ClInclude Include="src\event\event.h" />
+    <ClInclude Include="src\event\key_event.h" />
+    <ClInclude Include="src\event\mouse_event.h" />
+    <ClInclude Include="src\graphics\buffers\buffer.h" />
+    <ClInclude Include="src\graphics\buffers\indexbuffer.h" />
+    <ClInclude Include="src\graphics\buffers\vertex_array.h" />
     <ClInclude Include="src\graphics\render\renderer.h" />
     <ClInclude Include="src\graphics\render\shader.h" />
+    <ClInclude Include="src\graphics\scene.h" />
+    <ClInclude Include="src\graphics\window\window.h" />
+    <ClInclude Include="src\input\input.h" />
+    <ClInclude Include="src\input\keycodes.h" />
+    <ClInclude Include="src\input\mouse_button_codes.h" />
+    <ClInclude Include="src\log\log.h" />
+    <ClInclude Include="src\math\math.h" />
+    <ClInclude Include="src\math\matrix.h" />
+    <ClInclude Include="src\math\vector.h" />
     <ClInclude Include="src\utils\clock.h" />
+    <ClInclude Include="src\utils\file_io.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\test.shader" />

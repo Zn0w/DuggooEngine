@@ -39,7 +39,39 @@ void Application::start()
 	running = true;
 	onInit();
 
-	graphics::Shader test_shader("res/shaders/test.shader");
+	float vertices[3 * 3] = {
+		-0.5f, -0.5f, 0.0f,
+		 0.5f, -0.5f, 0.0f,
+		 0.0f,  0.5f, 0.0f
+	};
+
+	unsigned short indices [3]= {
+		0, 1, 2
+	};
+
+	/*graphics::VertexArray va;
+	graphics::Buffer vb(vertices, 9, 3);
+	va.addBuffer(&vb, 1);
+	graphics::IndexBuffer ib(indicies, 3);
+
+	ib.bind();*/
+	unsigned int va_id, vb_id, ib_id;
+
+	glGenVertexArrays(1, &va_id);
+	glBindVertexArray(va_id);
+
+	glGenBuffers(1, &vb_id);
+	glBindBuffer(GL_ARRAY_BUFFER, vb_id);
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+	glGenBuffers(1, &ib_id);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ib_id);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	float last_frame_time = 0.0f;
 	while (running && !window.isClosed())
@@ -48,6 +80,11 @@ void Application::start()
 
 		// update other systems (e.g. physics system) (maybe not here)
 		//renderer.render();
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glBindVertexArray(va_id);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
 		window.refresh();
 	}
