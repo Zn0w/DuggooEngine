@@ -34,6 +34,7 @@
     <ClCompile Include="src\graphics\render\render.cpp" />
     <ClCompile Include="src\graphics\render\shader.cpp" />
     <ClCompile Include="src\graphics\window\window.cpp" />
+    <ClCompile Include="src\gui\gui.cpp" />
     <ClCompile Include="src\input\input.cpp" />
     <ClCompile Include="src\log\log.cpp" />
     <ClCompile Include="src\math\matrix.cpp" />
@@ -62,6 +63,7 @@
     <ClInclude Include="src\graphics\render\shader.h" />
     <ClInclude Include="src\graphics\scene.h" />
     <ClInclude Include="src\graphics\window\window.h" />
+    <ClInclude Include="src\gui\gui.h" />
     <ClInclude Include="src\input\input.h" />
     <ClInclude Include="src\input\keycodes.h" />
     <ClInclude Include="src\input\mouse_button_codes.h" />
