@@ -11,10 +11,11 @@ namespace dg { namespace input {
 		GLFWwindow* window;
 
 	public:
-		void setWindow(GLFWwindow* handle) { window = handle; }
+		void setWindow(GLFWwindow* handle);
 		
 		bool isKeyPressed(int keycode);
 		bool isKeyReleased(int keycode);
+		bool isKeyTyped(int keycode);
 
 		// NOTE: possibly the return value of this function will be a vertex of x and y in the future
 		void getMousePosition(int* x, int* y);

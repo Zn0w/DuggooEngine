@@ -17,3 +17,5 @@ void main()
 {
 	color = vec4(1.0, 0.1, 0.1, 1.0);
 };
+
+// Basic test shader to test the Shader class, color of the polygon is set to (1.0, 0.1, 0.1, 1.0)

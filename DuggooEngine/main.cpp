@@ -5,6 +5,7 @@
 
 #include "src/app/application.h"
 #include "src/input/keycodes.h"
+#include "src/input/mouse_button_codes.h"
 
 
 class TestApplication : public dg::app::Application
@@ -25,7 +26,7 @@ public:
 		if (debug)
 			printf("Delta time: %fs  (%fms)\tFPS: %.0f\n", delta_time, delta_time * 1000.0f, 1.0 / delta_time);
 		
-		if (input.isKeyReleased(DG_KEY_G))
+		if (input.isKeyTyped(DG_KEY_G))
 		{
 			if (debug)
 				debug = false;

@@ -78,7 +78,7 @@ void Application::start()
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	graphics::Shader shader("res/shaders/test.shader");
+	graphics::Shader shader("res/shaders/test_2.shader");
 
 	float last_frame_time = 0.0f;
 	while (running && !window.isClosed())
