@@ -173,6 +173,9 @@
     <ClInclude Include="src\gui\gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\gui\debug_gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\test.shader" />

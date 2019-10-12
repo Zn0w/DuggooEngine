@@ -63,6 +63,7 @@
     <ClInclude Include="src\graphics\render\shader.h" />
     <ClInclude Include="src\graphics\scene.h" />
     <ClInclude Include="src\graphics\window\window.h" />
+    <ClInclude Include="src\gui\debug_gui.h" />
     <ClInclude Include="src\gui\gui.h" />
     <ClInclude Include="src\input\input.h" />
     <ClInclude Include="src\input\keycodes.h" />

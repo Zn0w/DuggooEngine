@@ -6,7 +6,7 @@
 #include "../graphics/render/renderer.h"
 #include "../utils/clock.h"
 #include "../input/input.h"
-#include "../gui/gui.h"
+#include "../gui/debug_gui.h"
 
 namespace dg { namespace app {
 	
@@ -25,7 +25,7 @@ namespace dg { namespace app {
 		//graphics::Renderer renderer;
 		clock::Clock clock;
 		graphics::Window window;
-		gui::Gui debug_gui;
+		gui::DebugGui debug_info;
 	protected:
 		input::Input input;
 

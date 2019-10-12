@@ -36,7 +36,7 @@ void Application::start()
 
 	input.setWindow(window.windowHandle);
 
-	debug_gui.init(window.windowHandle);
+	debug_info.init(window.windowHandle);
 
 	running = true;
 	onInit();
@@ -96,12 +96,12 @@ void Application::start()
 		glBindVertexArray(va_id);
 		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
-		debug_gui.render();
+		debug_info.render();
 
 		window.refresh();
 	}
 
-	debug_gui.destroy();
+	debug_info.destroy();
 
 	window.destroy();
 

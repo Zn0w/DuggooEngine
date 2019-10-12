@@ -10,14 +10,10 @@ namespace dg { namespace gui {
 
 	class Gui
 	{
-		bool show_demo_window;
-		bool show_another_window;
-		ImVec4 clear_color;
-
 	public:
-		void init(GLFWwindow* window);
-		void destroy();
-		void render();
+		virtual void init(GLFWwindow* window);
+		virtual void destroy();
+		virtual void render() = 0;
 	};
 
 } }
