@@ -78,7 +78,7 @@ void Application::start()
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	//graphics::Shader shader("res/shaders/test.shader");
+	graphics::Shader shader("res/shaders/test.shader");
 
 	float last_frame_time = 0.0f;
 	while (running && !window.isClosed())
@@ -90,7 +90,7 @@ void Application::start()
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		//shader.bind();
+		shader.bind();
 		glBindVertexArray(va_id);
 		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 

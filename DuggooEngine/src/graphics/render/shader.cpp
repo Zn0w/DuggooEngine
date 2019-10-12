@@ -49,7 +49,7 @@ void Shader::parseShader(const char* filepath)
 
 unsigned int Shader::compileShader(unsigned int shader_type, const char* source)
 {
-	unsigned int id = glCreateShader(GL_VERTEX_SHADER);
+	unsigned int id = glCreateShader(shader_type);
 	glShaderSource(id, 1, &source, nullptr);
 	glCompileShader(id);
 
