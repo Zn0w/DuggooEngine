@@ -6,7 +6,7 @@ namespace dg { namespace graphics {
 Shader::Shader(const char* filepath)
 {
 	parseShader(filepath);
-	renderer_id = createShader();
+	createShader();
 }
 
 Shader::~Shader()
@@ -68,24 +68,42 @@ unsigned int Shader::compileShader(unsigned int shader_type, const char* source)
 	return id;
 }
 
-unsigned int Shader::createShader()
+void Shader::createShader()
 {
 	unsigned int program = glCreateProgram();
+	renderer_id = program;
 	unsigned int vs = compileShader(GL_VERTEX_SHADER, vertex_shader.c_str());
 	unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fragment_shader.c_str());
 
 	glAttachShader(program, vs);
 	glAttachShader(program, fs);
 	glLinkProgram(program);
-	glValidateProgram(program);
+	//glValidateProgram(program);
 
-	// after linking tham to a program, we don't need those in memory any more
+	int compile_status;
+	glGetProgramiv(program, GL_COMPILE_STATUS, &compile_status);
+	if (compile_status == GL_FALSE)
+	{
+		int length;
+		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
+		// alloca allocates memory on the stack (maybe use more secure malloca)
+		char* message = (char*)alloca(length * sizeof(char));
+		glGetProgramInfoLog(program, length, &length, message);
+		printf("Failed to compile program:\n%s\n", message);
+
+		glDeleteProgram(program);
+
+		glDeleteShader(vs);
+		glDeleteShader(fs);
+
+		return;
+	}
+
+	// after linking that to a program, we don't need those intermediates in memory any more
 	glDetachShader(program, vs);
 	glDetachShader(program, fs);
 	glDeleteShader(vs);
 	glDeleteShader(fs);
-
-	return program;
 }
 
 void Shader::bind()

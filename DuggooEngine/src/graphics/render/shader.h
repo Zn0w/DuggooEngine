@@ -21,7 +21,7 @@ namespace dg { namespace graphics {
 		Shader(const char* filepath);
 		~Shader();
 
-		unsigned int createShader();
+		void createShader();
 
 		void bind();
 		void unbind();
