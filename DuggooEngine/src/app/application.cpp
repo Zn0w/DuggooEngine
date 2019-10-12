@@ -96,6 +96,15 @@ void Application::start()
 		glBindVertexArray(va_id);
 		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
+		// engine-specific input handling (e.g. press F3 to enter engine debug mode)
+		if (input.isKeyTyped(DG_KEY_G))
+		{
+			if (debug_info.debug_mode)
+				debug_info.debug_mode = false;
+			else
+				debug_info.debug_mode = true;
+		}
+
 		debug_info.render();
 
 		window.refresh();

@@ -23,17 +23,6 @@ public:
 
 	void onUpdate(float delta_time)
 	{
-		if (debug)
-			printf("Delta time: %fs  (%fms)\tFPS: %.0f\n", delta_time, delta_time * 1000.0f, 1.0 / delta_time);
-		
-		if (input.isKeyTyped(DG_KEY_G))
-		{
-			if (debug)
-				debug = false;
-			else
-				debug = true;
-		}
-
 		// game logic update
 	}
 

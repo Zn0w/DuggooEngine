@@ -6,6 +6,7 @@
 #include "../graphics/render/renderer.h"
 #include "../utils/clock.h"
 #include "../input/input.h"
+#include "../input/keycodes.h"
 #include "../gui/debug_gui.h"
 
 namespace dg { namespace app {
