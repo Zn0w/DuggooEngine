@@ -2,21 +2,24 @@
 
 #include <vector>
 
-#include "buffer.h"
+#include <glad/glad.h>
+
+#include "vertex_buffer.h"
+
 
 namespace dg { namespace graphics {
 
 	class VertexArray
 	{
 	private:
-		GLuint* arrayId;
-		std::vector<Buffer*> buffers;
+		unsigned int array_id;
+		std::vector<VertexBuffer*> vbs;
 
 	public:
 		VertexArray();
 		~VertexArray();
 
-		void addBuffer(Buffer* buffer, GLuint index);
+		void addBuffer(VertexBuffer* buffer, unsigned int layout_index);
 		void bind();
 		void unbind();
 	};

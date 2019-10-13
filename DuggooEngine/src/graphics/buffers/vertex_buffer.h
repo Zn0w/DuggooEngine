@@ -4,20 +4,17 @@
 
 namespace dg { namespace graphics {
 
-	class IndexBuffer
+	class VertexBuffer
 	{
 	private:
 		unsigned int buffer_id;
-		unsigned int count;
-
+		
 	public:
-		IndexBuffer(unsigned int* indices, unsigned int count);
-		~IndexBuffer();
+		VertexBuffer(float* data, unsigned int size);
+		~VertexBuffer();
 
 		void bind();
 		void unbind();
-
-		unsigned int getCount();
 	};
 
 } }

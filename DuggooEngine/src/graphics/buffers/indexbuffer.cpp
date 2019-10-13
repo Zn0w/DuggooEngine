@@ -2,20 +2,24 @@
 
 namespace dg { namespace graphics {
 
-	IndexBuffer::IndexBuffer(GLushort* data, GLsizei s_count)
+	IndexBuffer::IndexBuffer(unsigned int* indices, unsigned int s_count)
+		: count(s_count)
 	{
-		count = s_count;
+		glGenBuffers(1, &buffer_id);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer_id);
 
-		glGenBuffers(1, &bufferId);		// generate buffer
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferId);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(GLushort), data, GL_STATIC_DRAW);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);		// unbind buffer (second argument means unbind everything)
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, s_count * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
+	}
+
+	IndexBuffer::~IndexBuffer()
+	{
+		glDeleteBuffers(1, &buffer_id);
 	}
 
 	void IndexBuffer::bind()
 	{
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferId);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer_id);
 	}
 
 	void IndexBuffer::unbind()

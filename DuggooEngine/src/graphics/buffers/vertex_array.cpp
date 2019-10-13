@@ -1,39 +1,29 @@
 #include "vertex_array.h"
 
-#include <vector>
-
-#include <glad/glad.h>
-
-#include "buffer.h"
 
 namespace dg { namespace graphics {
 
 	VertexArray::VertexArray()
 	{
-		glGenVertexArrays(1, arrayId);
+		glGenVertexArrays(1, &array_id);
 	}
 
 	VertexArray::~VertexArray()
 	{
-		//for (int i = 0; i < buffers.size(); i++)
-			//delete buffers[i];
+		for (VertexBuffer* vb : vbs)
+			delete vb;
+
+		glDeleteVertexArrays(1, &array_id);
 	}
 
-	void VertexArray::addBuffer(Buffer* buffer, GLuint index)
+	void VertexArray::addBuffer(VertexBuffer* buffer, unsigned int layout_index)
 	{
-		bind();
-		buffer->bind();
-
-		glEnableVertexAttribArray(index);
-		glVertexAttribPointer(index, buffer->getComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
-
-		buffer->unbind();
-		unbind();
+		
 	}
 	
 	void VertexArray::bind()
 	{
-		glBindVertexArray(*arrayId);
+		glBindVertexArray(array_id);
 	}
 
 	void VertexArray::unbind()

@@ -41,6 +41,10 @@ void Application::start()
 	running = true;
 	onInit();
 
+	printf("OpenGL version: %s\n", glGetString(GL_VERSION));
+	printf("GPU vendor: %s\n", glGetString(GL_VENDOR));
+	printf("GPU model: %s\n", glGetString(GL_RENDERER));
+
 	float vertices[3 * 3] = {
 		-0.5f, -0.5f, 0.0f,
 		 0.5f, -0.5f, -1.0f,
@@ -51,34 +55,17 @@ void Application::start()
 		0, 1, 2
 	};
 
-	/*graphics::VertexArray va;
-	graphics::Buffer vb(vertices, 9, 3);
-	va.addBuffer(&vb, 1);
-	graphics::IndexBuffer ib(indicies, 3);
-
-	ib.bind();*/
-
-	printf("OpenGL version: %s\n", glGetString(GL_VERSION));
-	printf("GPU vendor: %s\n", glGetString(GL_VENDOR));
-	printf("GPU model: %s\n", glGetString(GL_RENDERER));
-
-	unsigned int va_id, vb_id, ib_id;
+	unsigned int va_id;
 
 	glGenVertexArrays(1, &va_id);
 	glBindVertexArray(va_id);
 
-	glGenBuffers(1, &vb_id);
-	glBindBuffer(GL_ARRAY_BUFFER, vb_id);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	graphics::VertexBuffer vb(vertices, sizeof(vertices));
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
-	glGenBuffers(1, &ib_id);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ib_id);
-
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	graphics::IndexBuffer ib(indices, 3);
 
 	graphics::Shader shader("res/shaders/test_2.shader");
 
