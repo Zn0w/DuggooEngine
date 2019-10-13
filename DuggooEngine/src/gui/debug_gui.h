@@ -24,17 +24,16 @@ namespace dg { namespace gui {
 			{
 				static int counter = 0;
 
-				ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+				ImGui::Begin("Debug Information");
 
-				ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
 				ImGui::Checkbox("Show FPS", &show_fps);
 
-				if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-					counter++;
-				ImGui::SameLine();
-				ImGui::Text("counter = %d", counter);
+				ImGui::Text("FPS: %.1f (%.3f ms/frame)", ImGui::GetIO().Framerate, 1000.0f / ImGui::GetIO().Framerate);
 
-				ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+				ImGui::Text("OpenGL version: %s", glGetString(GL_VERSION));
+				ImGui::Text("GPU vendor: %s", glGetString(GL_VENDOR));
+				ImGui::Text("GPU model: %s", glGetString(GL_RENDERER));
+
 				ImGui::End();
 			}
 			else if (show_fps)

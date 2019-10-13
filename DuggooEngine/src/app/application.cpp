@@ -84,7 +84,7 @@ void Application::start()
 		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
 		// engine-specific input handling (e.g. press F3 to enter engine debug mode)
-		if (input.isKeyTyped(DG_KEY_G))
+		if (input.isKeyTyped(DG_KEY_F3))
 		{
 			if (debug_info.debug_mode)
 				debug_info.debug_mode = false;
