@@ -2,7 +2,7 @@
 
 #include <glad/glad.h>
 
-//#include "../buffers/vertex_array.h"
+#include "../buffers/vertex_array.h"
 #include "../buffers/vertex_buffer.h"
 #include "../buffers/indexbuffer.h"
 #include "shader.h"

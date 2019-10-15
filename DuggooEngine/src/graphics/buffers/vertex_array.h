@@ -5,6 +5,8 @@
 #include <glad/glad.h>
 
 #include "vertex_buffer.h"
+#include "indexbuffer.h"
+#include "buffer_layout.h"
 
 
 namespace dg { namespace graphics {
@@ -14,12 +16,15 @@ namespace dg { namespace graphics {
 	private:
 		unsigned int array_id;
 		std::vector<VertexBuffer*> vbs;
+		IndexBuffer* ib;
 
 	public:
 		VertexArray();
 		~VertexArray();
 
-		void addBuffer(VertexBuffer* buffer, unsigned int layout_index);
+		void addVertexBuffer(VertexBuffer* buffer, unsigned int layout_index);
+		void setIndexBuffer(IndexBuffer* buffer);
+
 		void bind();
 		void unbind();
 	};

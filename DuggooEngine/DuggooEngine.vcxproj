@@ -56,6 +56,7 @@
     <ClInclude Include="src\event\event.h" />
     <ClInclude Include="src\event\key_event.h" />
     <ClInclude Include="src\event\mouse_event.h" />
+    <ClInclude Include="src\graphics\buffers\buffer_layout.h" />
     <ClInclude Include="src\graphics\buffers\vertex_buffer.h" />
     <ClInclude Include="src\graphics\buffers\indexbuffer.h" />
     <ClInclude Include="src\graphics\buffers\vertex_array.h" />

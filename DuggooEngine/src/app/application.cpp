@@ -61,6 +61,12 @@ void Application::start()
 	glBindVertexArray(va_id);
 
 	graphics::VertexBuffer vb(vertices, sizeof(vertices));
+	
+	dg::graphics::BufferLayout layout = {
+		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" }
+	};
+
+	//vb.setLayout();
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
