@@ -19,20 +19,20 @@ namespace dg { namespace graphics {
 	{
 		switch (type)
 		{
-		case FLOAT	:	return 4;			break;
-		case FLOAT2	:	return 4 * 2;		break;
-		case FLOAT3	:	return 4 * 3;		break;
-		case FLOAT4	:	return 4 * 4;		break;
+		case FLOAT	:	return 4;
+		case FLOAT2	:	return 4 * 2;
+		case FLOAT3	:	return 4 * 3;
+		case FLOAT4	:	return 4 * 4;
 
-		case INT	:	return 4;			break;
-		case INT2	:	return 4 * 2;		break;
-		case INT3	:	return 4 * 3;		break;
-		case INT4	:	return 4 * 4;		break;
+		case INT	:	return 4;
+		case INT2	:	return 4 * 2;
+		case INT3	:	return 4 * 3;
+		case INT4	:	return 4 * 4;
 
-		case MAT3	:	return 4 * 3 * 3;	break;
-		case MAT4	:	return 4 * 4 * 4;	break;
+		case MAT3	:	return 4 * 3 * 3;
+		case MAT4	:	return 4 * 4 * 4;
 
-		case BOOL	:	return 1;			break;
+		case BOOL	:	return 1;
 
 
 		default:
@@ -51,6 +51,27 @@ namespace dg { namespace graphics {
 		BufferElement(ShaderDataType s_type, const char* s_name)
 			: type(s_type), name(s_name), size(ShaderDataTypeSize(type)), offset(0)
 		{}
+
+		unsigned int getComponentCount()
+		{
+			switch (type)
+			{
+			case FLOAT	:	return 1;
+			case FLOAT2	:	return 2;
+			case FLOAT3	:	return 3;
+			case FLOAT4	:	return 4;
+
+			case INT	:	return 1;
+			case INT2	:	return 2;
+			case INT3	:	return 3;
+			case INT4	:	return 4;
+
+			case MAT3	:	return 3 * 3;
+			case MAT4	:	return 4 * 4;
+
+			case BOOL	:	return 1;
+			}
+		}
 	};
 	
 	class BufferLayout

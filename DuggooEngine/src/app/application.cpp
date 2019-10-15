@@ -63,7 +63,9 @@ void Application::start()
 	graphics::VertexBuffer vb(vertices, sizeof(vertices));
 	
 	dg::graphics::BufferLayout layout = {
-		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" }
+		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" },
+		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" },
+		{ dg::graphics::ShaderDataType::FLOAT4, "a_Position" }
 	};
 
 	//vb.setLayout();

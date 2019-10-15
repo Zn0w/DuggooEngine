@@ -15,6 +15,16 @@ namespace dg { namespace graphics {
 		glDeleteBuffers(1, &buffer_id);
 	}
 
+	void VertexBuffer::setLayout(const BufferLayout& s_layout)
+	{
+		layout = s_layout;
+	}
+
+	const BufferLayout& VertexBuffer::getLayout()
+	{
+		return layout;
+	}
+
 	void VertexBuffer::bind()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, buffer_id);
