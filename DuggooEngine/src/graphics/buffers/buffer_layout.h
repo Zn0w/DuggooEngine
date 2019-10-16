@@ -19,25 +19,25 @@ namespace dg { namespace graphics {
 	{
 		switch (type)
 		{
-		case FLOAT	:	return 4;
-		case FLOAT2	:	return 4 * 2;
-		case FLOAT3	:	return 4 * 3;
-		case FLOAT4	:	return 4 * 4;
+			case FLOAT	:	return 4;
+			case FLOAT2	:	return 4 * 2;
+			case FLOAT3	:	return 4 * 3;
+			case FLOAT4	:	return 4 * 4;
 
-		case INT	:	return 4;
-		case INT2	:	return 4 * 2;
-		case INT3	:	return 4 * 3;
-		case INT4	:	return 4 * 4;
+			case INT	:	return 4;
+			case INT2	:	return 4 * 2;
+			case INT3	:	return 4 * 3;
+			case INT4	:	return 4 * 4;
 
-		case MAT3	:	return 4 * 3 * 3;
-		case MAT4	:	return 4 * 4 * 4;
+			case MAT3	:	return 4 * 3 * 3;
+			case MAT4	:	return 4 * 4 * 4;
 
-		case BOOL	:	return 1;
+			case BOOL	:	return 1;
 
 
-		default:
-			printf("Unknown shader data type\n");
-			return 0;
+			default:
+				printf("Unknown shader data type\n");
+				return 0;
 		}
 	}
 	
@@ -47,12 +47,16 @@ namespace dg { namespace graphics {
 		const char* name;
 		unsigned int size;
 		unsigned int offset;
+		bool normalized;
 
+		
+		BufferElement() {}
+		
 		BufferElement(ShaderDataType s_type, const char* s_name)
-			: type(s_type), name(s_name), size(ShaderDataTypeSize(type)), offset(0)
+			: type(s_type), name(s_name), size(ShaderDataTypeSize(type)), offset(0), normalized(false)
 		{}
 
-		unsigned int getComponentCount()
+		unsigned int getComponentCount() const
 		{
 			switch (type)
 			{
@@ -82,6 +86,8 @@ namespace dg { namespace graphics {
 		unsigned int stride = 0;
 
 	public:
+		BufferLayout() {}
+		
 		BufferLayout(const std::initializer_list<BufferElement>& s_elements)
 			: elements(s_elements)
 		{
@@ -89,6 +95,13 @@ namespace dg { namespace graphics {
 		}
 		
 		inline const std::vector<BufferElement>& getElements() { return elements; }
+		inline unsigned int getStride() const { return stride; }
+
+		// For iteration with for each
+		std::vector<BufferElement>::iterator begin() { return elements.begin(); }
+		std::vector<BufferElement>::iterator end() { return elements.end(); }
+		std::vector<BufferElement>::const_iterator begin() const { return elements.begin(); }
+		std::vector<BufferElement>::const_iterator end() const { return elements.end(); }
 
 	private:
 		void calculateOffsetAndStride()

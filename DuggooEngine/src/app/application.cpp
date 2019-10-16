@@ -24,6 +24,33 @@ Application::~Application()
 	
 }
 
+static GLenum ShaderDataType_to_OpenglBaseType(graphics::ShaderDataType type)
+{
+	switch (type)
+	{
+		case graphics::ShaderDataType::FLOAT:
+		case graphics::ShaderDataType::FLOAT2:
+		case graphics::ShaderDataType::FLOAT3:
+		case graphics::ShaderDataType::FLOAT4:
+		case graphics::ShaderDataType::MAT3:
+		case graphics::ShaderDataType::MAT4:
+			return GL_FLOAT;
+
+		case graphics::ShaderDataType::INT:
+		case graphics::ShaderDataType::INT2:
+		case graphics::ShaderDataType::INT3:
+		case graphics::ShaderDataType::INT4:
+			return GL_INT;
+
+		case graphics::ShaderDataType::BOOL:	return GL_BOOL;
+
+
+		default:
+			printf("Unknown shader data type\n");
+			return 0;
+	}
+}
+
 void Application::start()
 {
 	// init other systems (maybe not here)
@@ -45,10 +72,10 @@ void Application::start()
 	printf("GPU vendor: %s\n", glGetString(GL_VENDOR));
 	printf("GPU model: %s\n", glGetString(GL_RENDERER));
 
-	float vertices[3 * 3] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, -1.0f,
-		 0.0f,  0.5f, 0.0f
+	float vertices[3 * 7] = {
+		-0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+		 0.0f,  0.5f,  0.0f, 1.0f, 1.0f, 0.0f, 1.0f
 	};
 
 	unsigned int indices [3]= {
@@ -62,16 +89,29 @@ void Application::start()
 
 	graphics::VertexBuffer vb(vertices, sizeof(vertices));
 	
-	dg::graphics::BufferLayout layout = {
-		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" },
-		{ dg::graphics::ShaderDataType::FLOAT3, "a_Position" },
-		{ dg::graphics::ShaderDataType::FLOAT4, "a_Position" }
-	};
+	{
+		dg::graphics::BufferLayout layout = {
+			{ dg::graphics::ShaderDataType::FLOAT3, "position" },
+			{ dg::graphics::ShaderDataType::FLOAT4, "a_Color" }
+		};
 
-	//vb.setLayout();
+		vb.setLayout(layout);
+	}
 
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+	unsigned int index = 0;
+	for (const graphics::BufferElement& element : vb.getLayout())
+	{
+		glEnableVertexAttribArray(index);
+		glVertexAttribPointer(
+			index,
+			element.getComponentCount(),
+			ShaderDataType_to_OpenglBaseType(element.type),
+			element.normalized ? GL_TRUE : GL_FALSE,
+			vb.getLayout().getStride(),
+			(const void*) element.offset
+		);
+		index++;
+	}
 
 	graphics::IndexBuffer ib(indices, 3);
 
