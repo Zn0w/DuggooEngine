@@ -3,6 +3,33 @@
 
 namespace dg { namespace graphics {
 
+	static GLenum ShaderDataType_to_OpenglBaseType(graphics::ShaderDataType type)
+	{
+		switch (type)
+		{
+		case graphics::ShaderDataType::FLOAT:
+		case graphics::ShaderDataType::FLOAT2:
+		case graphics::ShaderDataType::FLOAT3:
+		case graphics::ShaderDataType::FLOAT4:
+		case graphics::ShaderDataType::MAT3:
+		case graphics::ShaderDataType::MAT4:
+			return GL_FLOAT;
+
+		case graphics::ShaderDataType::INT:
+		case graphics::ShaderDataType::INT2:
+		case graphics::ShaderDataType::INT3:
+		case graphics::ShaderDataType::INT4:
+			return GL_INT;
+
+		case graphics::ShaderDataType::BOOL:	return GL_BOOL;
+
+
+		default:
+			printf("Unknown shader data type\n");
+			return 0;
+		}
+	}
+	
 	VertexArray::VertexArray()
 	{
 		glGenVertexArrays(1, &array_id);
@@ -11,19 +38,37 @@ namespace dg { namespace graphics {
 
 	VertexArray::~VertexArray()
 	{
-		for (VertexBuffer* vb : vbs)
-			delete vb;
-
 		glDeleteVertexArrays(1, &array_id);
 	}
 
-	void VertexArray::addVertexBuffer(VertexBuffer* buffer, unsigned int layout_index)
+	void VertexArray::addVertexBuffer(VertexBuffer* vertex_buffer)
 	{
 		glBindVertexArray(array_id);
-		buffer->bind();
+		vertex_buffer->bind();
 
-		glEnableVertexAttribArray(layout_index);
-		glVertexAttribPointer(layout_index, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+		unsigned int index = 0;
+		for (const graphics::BufferElement& element : vertex_buffer->getLayout())
+		{
+			glEnableVertexAttribArray(index);
+			glVertexAttribPointer(
+				index,
+				element.getComponentCount(),
+				ShaderDataType_to_OpenglBaseType(element.type),
+				element.normalized ? GL_TRUE : GL_FALSE,
+				vertex_buffer->getLayout().getStride(),
+				(const void*)element.offset
+			);
+			index++;
+		}
+		vbs.push_back(vertex_buffer);
+	}
+
+	void VertexArray::setIndexBuffer(IndexBuffer* index_buffer)
+	{
+		glBindVertexArray(array_id);
+		index_buffer->bind();
+
+		ib = index_buffer;
 	}
 	
 	void VertexArray::bind()

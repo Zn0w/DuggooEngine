@@ -22,8 +22,11 @@ namespace dg { namespace graphics {
 		VertexArray();
 		~VertexArray();
 
-		void addVertexBuffer(VertexBuffer* buffer, unsigned int layout_index);
-		void setIndexBuffer(IndexBuffer* buffer);
+		void addVertexBuffer(VertexBuffer* vertex_buffer);
+		void setIndexBuffer(IndexBuffer* index_buffer);
+
+		inline std::vector<VertexBuffer*> getVertexBuffers() { return vbs; }
+		inline IndexBuffer* getIndexBuffer() { return ib; }
 
 		void bind();
 		void unbind();

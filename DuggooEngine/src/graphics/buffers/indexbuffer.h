@@ -17,7 +17,7 @@ namespace dg { namespace graphics {
 		void bind();
 		void unbind();
 
-		unsigned int getCount();
+		inline unsigned int getCount() { return count; }
 	};
 
 } }

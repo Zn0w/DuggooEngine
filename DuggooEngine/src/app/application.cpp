@@ -24,33 +24,6 @@ Application::~Application()
 	
 }
 
-static GLenum ShaderDataType_to_OpenglBaseType(graphics::ShaderDataType type)
-{
-	switch (type)
-	{
-		case graphics::ShaderDataType::FLOAT:
-		case graphics::ShaderDataType::FLOAT2:
-		case graphics::ShaderDataType::FLOAT3:
-		case graphics::ShaderDataType::FLOAT4:
-		case graphics::ShaderDataType::MAT3:
-		case graphics::ShaderDataType::MAT4:
-			return GL_FLOAT;
-
-		case graphics::ShaderDataType::INT:
-		case graphics::ShaderDataType::INT2:
-		case graphics::ShaderDataType::INT3:
-		case graphics::ShaderDataType::INT4:
-			return GL_INT;
-
-		case graphics::ShaderDataType::BOOL:	return GL_BOOL;
-
-
-		default:
-			printf("Unknown shader data type\n");
-			return 0;
-	}
-}
-
 void Application::start()
 {
 	// init other systems (maybe not here)
@@ -82,10 +55,8 @@ void Application::start()
 		0, 1, 2
 	};
 
-	unsigned int va_id;
 
-	glGenVertexArrays(1, &va_id);
-	glBindVertexArray(va_id);
+	graphics::VertexArray va;
 
 	graphics::VertexBuffer vb(vertices, sizeof(vertices));
 	
@@ -98,22 +69,10 @@ void Application::start()
 		vb.setLayout(layout);
 	}
 
-	unsigned int index = 0;
-	for (const graphics::BufferElement& element : vb.getLayout())
-	{
-		glEnableVertexAttribArray(index);
-		glVertexAttribPointer(
-			index,
-			element.getComponentCount(),
-			ShaderDataType_to_OpenglBaseType(element.type),
-			element.normalized ? GL_TRUE : GL_FALSE,
-			vb.getLayout().getStride(),
-			(const void*) element.offset
-		);
-		index++;
-	}
+	va.addVertexBuffer(&vb);
 
 	graphics::IndexBuffer ib(indices, 3);
+	va.setIndexBuffer(&ib);
 
 	graphics::Shader shader("res/shaders/test_2.shader");
 
@@ -128,8 +87,8 @@ void Application::start()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shader.bind();
-		glBindVertexArray(va_id);
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+		va.bind();
+		glDrawElements(GL_TRIANGLES, va.getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
 
 		// engine-specific input handling (e.g. press F3 to enter engine debug mode)
 		if (input.isKeyTyped(DG_KEY_F3))
