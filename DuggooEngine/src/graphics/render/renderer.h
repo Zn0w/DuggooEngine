@@ -1,18 +1,21 @@
 #pragma once
 
-#include <glad/glad.h>
-
+#include "../../math/math.h"
 #include "../buffers/vertex_array.h"
-#include "../buffers/vertex_buffer.h"
-#include "../buffers/indexbuffer.h"
 #include "shader.h"
+
 
 namespace dg { namespace graphics {
 
+	void Clear(math::Vector4 clear_color);
+	void DrawIndexed(VertexArray* vertex_array);
+	
 	class Renderer
 	{
 	public:
-		//void render(VertexArray& va, IndexBuffer& ib, Shader& shader);
+		static void BeginScene();
+		static void EndScene();
+		static void SubmitMesh(VertexArray* va);
 	};
 
 } }

@@ -86,9 +86,19 @@ void Application::start()
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		graphics::Renderer::BeginScene();	// will take SceneSettings(camera, lights, environment) as an argument
+		
+		shader.bind();
+		graphics::Renderer::SubmitMesh(&va);
+		
+		graphics::Renderer::EndScene();
+
+		 // will be called in the second thread
+		//Renderer::flush();
+
 		shader.bind();
 		va.bind();
-		glDrawElements(GL_TRIANGLES, va.getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, va.getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr); 
 
 		// engine-specific input handling (e.g. press F3 to enter engine debug mode)
 		if (input.isKeyTyped(DG_KEY_F3))
