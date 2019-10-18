@@ -30,9 +30,6 @@
     <ClCompile Include="src\input\input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\render\render.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\render\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,11 +75,11 @@
     <ClCompile Include="src\graphics\buffers\vertex_buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\render\renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\render\renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\utils\clock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -177,6 +174,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\buffer_layout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\render\renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

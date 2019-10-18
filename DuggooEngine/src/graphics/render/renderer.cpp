@@ -15,8 +15,11 @@ namespace dg { namespace graphics {
 
 	void DrawIndexed(VertexArray* vertex_array)
 	{
-		
+		glDrawElements(GL_TRIANGLES, vertex_array->getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
 	}
+
+
+	// Renderer class functions
 
 	void Renderer::BeginScene()
 	{
@@ -30,7 +33,10 @@ namespace dg { namespace graphics {
 	
 	void Renderer::SubmitMesh(VertexArray* va)
 	{
-	
+		// TODO: Submit into render command queue
+
+		va->bind();
+		DrawIndexed(va);  // for test
 	}
 
 } }

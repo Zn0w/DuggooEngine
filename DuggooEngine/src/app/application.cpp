@@ -81,10 +81,11 @@ void Application::start()
 	{	
 		onUpdate(clock.getDeltaTime());
 
+
 		// update other systems (e.g. physics system) (maybe not here)
-		//renderer.render();
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		
+
+		graphics::Clear({0.1f, 0.1f, 0.1f, 1.0f});
 
 		graphics::Renderer::BeginScene();	// will take SceneSettings(camera, lights, environment) as an argument
 		
@@ -95,10 +96,7 @@ void Application::start()
 
 		 // will be called in the second thread
 		//Renderer::flush();
-
-		shader.bind();
-		va.bind();
-		glDrawElements(GL_TRIANGLES, va.getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr); 
+		
 
 		// engine-specific input handling (e.g. press F3 to enter engine debug mode)
 		if (input.isKeyTyped(DG_KEY_F3))
