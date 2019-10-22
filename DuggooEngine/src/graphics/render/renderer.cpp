@@ -21,9 +21,11 @@ namespace dg { namespace graphics {
 
 	// Renderer class functions
 
+	SceneData* Renderer::scene_data = new SceneData;
+
 	void Renderer::BeginScene(OrthographicCamera& camera)
 	{
-	
+		scene_data->viewprojection_matrix = camera.getViewProjectionMatrix();
 	}
 	
 	void Renderer::EndScene()
@@ -31,9 +33,12 @@ namespace dg { namespace graphics {
 	
 	}
 	
-	void Renderer::SubmitMesh(VertexArray* va)
+	void Renderer::SubmitMesh(Shader* shader, VertexArray* va)
 	{
 		// TODO: Submit into render command queue
+
+		shader->bind();
+		shader->uploadUniformMat4f("u_ViewProjection", scene_data->viewprojection_matrix);
 
 		va->bind();
 		DrawIndexed(va);  // for test

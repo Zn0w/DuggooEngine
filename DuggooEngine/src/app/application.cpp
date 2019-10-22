@@ -46,6 +46,7 @@ void Application::start()
 	printf("GPU vendor: %s\n", glGetString(GL_VENDOR));
 	printf("GPU model: %s\n", glGetString(GL_RENDERER));
 
+	// data for the colorful triangle
 	float vertices[3 * 7] = {
 		-0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
 		 0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
@@ -56,7 +57,17 @@ void Application::start()
 		0, 1, 2
 	};
 
+	// data for the blue square
+	float square_vertices[3 * 4] = {
+		-0.75f, -0.75f, 0.0f,
+		0.75f, -0.75f, 0.0f,
+		0.75f,  0.75f, 0.0f,
+		-0.75f,  0.75f, 0.0f
+	};
+	unsigned int square_indices[6] = { 0, 1, 2, 2, 3, 0 };
 
+
+	// colorful triangle
 	graphics::VertexArray va;
 
 	graphics::VertexBuffer vb(vertices, sizeof(vertices));
@@ -77,6 +88,26 @@ void Application::start()
 
 	graphics::Shader shader("res/shaders/test_2.shader");
 
+	// blue square
+	graphics::VertexArray square_va;
+
+	graphics::VertexBuffer square_vb(square_vertices, sizeof(square_vertices));
+
+	{
+		dg::graphics::BufferLayout layout = {
+			{ dg::graphics::ShaderDataType::FLOAT3, "position" }
+		};
+
+		square_vb.setLayout(layout);
+	}
+
+	square_va.addVertexBuffer(&square_vb);
+
+	graphics::IndexBuffer square_ib(square_indices, 6);
+	square_va.setIndexBuffer(&square_ib);
+
+	graphics::Shader blue_shader("res/shaders/blue_square.shader");
+
 	while (running && !window.isClosed())
 	{	
 		onUpdate(clock.getDeltaTime());
@@ -89,9 +120,8 @@ void Application::start()
 
 		graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
 		
-		shader.bind();
-		shader.uploadUniformMat4f("u_ViewProjection", camera.getViewProjectionMatrix());
-		graphics::Renderer::SubmitMesh(&va);
+		graphics::Renderer::SubmitMesh(&blue_shader, &square_va);
+		graphics::Renderer::SubmitMesh(&shader, &va);
 		
 		graphics::Renderer::EndScene();
 

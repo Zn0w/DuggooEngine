@@ -192,5 +192,7 @@
   <ItemGroup>
     <None Include="res\shaders\test.shader" />
     <None Include="res\shaders\test_2.shader" />
+    <None Include="res\shaders\colorful_triangle.shader" />
+    <None Include="res\shaders\blue_square.shader" />
   </ItemGroup>
 </Project>
