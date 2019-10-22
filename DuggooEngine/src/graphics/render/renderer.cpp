@@ -21,7 +21,7 @@ namespace dg { namespace graphics {
 
 	// Renderer class functions
 
-	void Renderer::BeginScene()
+	void Renderer::BeginScene(OrthographicCamera& camera)
 	{
 	
 	}

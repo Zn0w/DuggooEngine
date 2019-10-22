@@ -4,9 +4,12 @@
 
 #include "../graphics/window/window.h"
 #include "../graphics/render/renderer.h"
+
 #include "../utils/clock.h"
+
 #include "../input/input.h"
 #include "../input/keycodes.h"
+
 #include "../gui/debug_gui.h"
 
 namespace dg { namespace app {
@@ -23,7 +26,7 @@ namespace dg { namespace app {
 	public:
 		bool running = false;
 	private:
-		//graphics::Renderer renderer;
+		graphics::OrthographicCamera camera;
 		clock::Clock clock;
 		graphics::Window window;
 		gui::DebugGui debug_info;

@@ -3,6 +3,7 @@
 #include "../../math/math.h"
 #include "../buffers/vertex_array.h"
 #include "shader.h"
+#include "camera.h"
 
 
 namespace dg { namespace graphics {
@@ -13,7 +14,7 @@ namespace dg { namespace graphics {
 	class Renderer
 	{
 	public:
-		static void BeginScene();
+		static void BeginScene(OrthographicCamera& camera);
 		static void EndScene();
 		static void SubmitMesh(VertexArray* va);
 	};

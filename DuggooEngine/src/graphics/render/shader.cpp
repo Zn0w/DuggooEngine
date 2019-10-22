@@ -1,5 +1,7 @@
 #include "shader.h"
 
+#include <gtc/type_ptr.hpp>
+
 
 namespace dg { namespace graphics {
 
@@ -127,6 +129,12 @@ int Shader::getUniformLocation(const char* name)
 void Shader::setUniform4f(const char* name, float v0, float v1, float v2, float v3)
 {
 	glUniform4f(getUniformLocation(name), v0, v1, v2, v3);
+}
+
+void Shader::uploadUniformMat4f(const char* name, const glm::mat4& matrix)
+{
+	int location = getUniformLocation(name);
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 }
 
 } }

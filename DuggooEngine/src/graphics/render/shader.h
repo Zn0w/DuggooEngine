@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <sstream>
 
+#include <glm.hpp>
+
 #include "../../utils/file_io.h"
 
 
@@ -27,6 +29,7 @@ namespace dg { namespace graphics {
 		void unbind();
 
 		void setUniform4f(const char* name, float v0, float v1, float v2, float v3);
+		void uploadUniformMat4f(const char* name, const glm::mat4& matrix);
 		
 	private:
 		void parseShader(const char* filepath);

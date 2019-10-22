@@ -31,6 +31,7 @@
     <ClCompile Include="src\graphics\buffers\vertex_buffer.cpp" />
     <ClCompile Include="src\graphics\buffers\indexbuffer.cpp" />
     <ClCompile Include="src\graphics\buffers\vertex_array.cpp" />
+    <ClCompile Include="src\graphics\render\camera.cpp" />
     <ClCompile Include="src\graphics\render\renderer.cpp" />
     <ClCompile Include="src\graphics\render\shader.cpp" />
     <ClCompile Include="src\graphics\window\window.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="src\utils\file_io.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\dependencies\glm\glm.hpp" />
     <ClInclude Include="..\dependencies\ImGui\imconfig.h" />
     <ClInclude Include="..\dependencies\ImGui\imgui.h" />
     <ClInclude Include="..\dependencies\ImGui\imgui_impl_glfw.h" />
@@ -60,6 +62,7 @@
     <ClInclude Include="src\graphics\buffers\vertex_buffer.h" />
     <ClInclude Include="src\graphics\buffers\indexbuffer.h" />
     <ClInclude Include="src\graphics\buffers\vertex_array.h" />
+    <ClInclude Include="src\graphics\render\camera.h" />
     <ClInclude Include="src\graphics\render\renderer.h" />
     <ClInclude Include="src\graphics\render\shader.h" />
     <ClInclude Include="src\graphics\scene.h" />
@@ -145,7 +148,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;D:\work\projects\DuggooEngine\dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;D:\work\projects\DuggooEngine\dependencies\ImGui;D:\work\projects\DuggooEngine\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -169,7 +172,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;D:\work\projects\DuggooEngine\dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\projects\DuggooEngine\dependencies\GLAD\include;D:\work\projects\DuggooEngine\dependencies\GLFW\include;D:\work\projects\DuggooEngine\dependencies\ImGui;D:\work\projects\DuggooEngine\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;GLFW_INCLUDE_NONE;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>

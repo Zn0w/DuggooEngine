@@ -4,6 +4,7 @@
 namespace dg { namespace app {
 
 Application::Application(graphics::WindowProperties properties, RenderType render_type)
+	: camera(-1.6f, 1.6f, -0.9f, 0.9f)
 {
 	switch (render_type)
 	{
@@ -86,9 +87,10 @@ void Application::start()
 
 		graphics::Clear({0.1f, 0.1f, 0.1f, 1.0f});
 
-		graphics::Renderer::BeginScene();	// will take SceneSettings(camera, lights, environment) as an argument
+		graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
 		
 		shader.bind();
+		shader.uploadUniformMat4f("u_ViewProjection", camera.getViewProjectionMatrix());
 		graphics::Renderer::SubmitMesh(&va);
 		
 		graphics::Renderer::EndScene();
