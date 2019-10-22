@@ -118,6 +118,9 @@ void Application::start()
 
 		graphics::Clear({0.1f, 0.1f, 0.1f, 1.0f});
 
+		camera.setPosition({0.3f, 0.3f, 0.0f});
+		camera.setRotation(-45.0f);
+
 		graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
 		
 		graphics::Renderer::SubmitMesh(&blue_shader, &square_va);

@@ -10,8 +10,8 @@ namespace dg { namespace graphics {
 	private:
 		glm::mat4 projection_matrix;
 		glm::mat4 view_matrix;
-		glm::mat4 viewprojection_matrix;	// caching the result projection_matrix * view_matrix	NOTE: maybe not cache in the future
-		glm::vec3 position;					// Z axis rotation
+		glm::mat4 viewprojection_matrix;			// caching the result projection_matrix * view_matrix	NOTE: maybe not cache in the future
+		glm::vec3 position = {0.0f, 0.0f, 0.0f};	// Z axis rotation	NOTE: you don't have to init position, it will be set automatically in newer glm versions
 		float rotation = 0.0f;
 
 	public:
