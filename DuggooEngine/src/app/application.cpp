@@ -76,7 +76,6 @@ void Application::start()
 
 	graphics::Shader shader("res/shaders/test_2.shader");
 
-	float last_frame_time = 0.0f;
 	while (running && !window.isClosed())
 	{	
 		onUpdate(clock.getDeltaTime());
