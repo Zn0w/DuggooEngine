@@ -13,6 +13,10 @@ class TestApplication : public dg::app::Application
 {
 private:
 	dg::graphics::OrthographicCamera camera;
+	glm::vec3 camera_position;
+	float camera_rotation = 0.0f;
+	const float camera_move_speed = 0.01f;
+	const float camera_rotation_speed = 0.01f;
 	dg::graphics::VertexArray* va;			// Triangle va
 	dg::graphics::VertexArray* square_va;	// Square va
 	dg::graphics::Shader* shader;
@@ -20,7 +24,8 @@ private:
 
 public:
 	TestApplication()
-		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D), camera(-1.6f, 1.6f, -0.9f, 0.9f)
+		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D), camera(-1.6f, 1.6f, -0.9f, 0.9f),
+		  camera_position(0.0f, 0.0f, 0.0f)
 	{}
 
 	void onInit()
@@ -90,12 +95,28 @@ public:
 	void onUpdate(float delta_time)
 	{	
 		// update other systems (e.g. physics system) (maybe not here)
+		
+
+		if (input.isKeyPressed(DG_KEY_A))		// left
+			camera_position.x -= camera_move_speed;
+		else if (input.isKeyPressed(DG_KEY_D))	// right
+			camera_position.x += camera_move_speed;
+
+		if (input.isKeyPressed(DG_KEY_W))		// up
+			camera_position.y += camera_move_speed;
+		else if (input.isKeyPressed(DG_KEY_S))	// down
+			camera_position.y -= camera_move_speed;
+
+		if (input.isKeyPressed(DG_KEY_RIGHT))
+			camera_rotation -= camera_rotation_speed;
+		else if (input.isKeyPressed(DG_KEY_LEFT))
+			camera_rotation += camera_rotation_speed;
 
 
 		dg::graphics::Clear({ 0.1f, 0.1f, 0.1f, 1.0f });
 
-		camera.setPosition({ 0.3f, 0.3f, 0.0f });
-		camera.setRotation(-45.0f);
+		camera.setPosition(camera_position);
+		camera.setRotation(camera_rotation);
 
 		dg::graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
 
