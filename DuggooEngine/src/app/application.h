@@ -26,7 +26,6 @@ namespace dg { namespace app {
 	public:
 		bool running = false;
 	private:
-		graphics::OrthographicCamera camera;
 		clock::Clock clock;
 		graphics::Window window;
 		gui::DebugGui debug_info;

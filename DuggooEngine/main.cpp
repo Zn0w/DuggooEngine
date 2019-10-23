@@ -6,24 +6,106 @@
 #include "src/app/application.h"
 #include "src/input/keycodes.h"
 #include "src/input/mouse_button_codes.h"
+#include "src/graphics/render/renderer.h"
 
 
 class TestApplication : public dg::app::Application
 {
-	bool debug = false;
+private:
+	dg::graphics::OrthographicCamera camera;
+	dg::graphics::VertexArray* va;			// Triangle va
+	dg::graphics::VertexArray* square_va;	// Square va
+	dg::graphics::Shader* shader;
+	dg::graphics::Shader* blue_shader;
+
 public:
 	TestApplication()
-		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D)
+		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D), camera(-1.6f, 1.6f, -0.9f, 0.9f)
 	{}
 
 	void onInit()
 	{
-		// init game logic stuff
+		// Colorful triangle
+
+		float vertices[3 * 7] = {
+			-0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+			0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+			0.0f,  0.5f,  0.0f, 1.0f, 1.0f, 0.0f, 1.0f
+		};
+
+		unsigned int indices[3] = { 0, 1, 2 };
+
+
+		va = new dg::graphics::VertexArray();
+
+		dg::graphics::VertexBuffer* vb = new dg::graphics::VertexBuffer(vertices, sizeof(vertices));
+
+		{
+			dg::graphics::BufferLayout layout = {
+				{ dg::graphics::ShaderDataType::FLOAT3, "position" },
+			{ dg::graphics::ShaderDataType::FLOAT4, "a_Color" }
+			};
+
+			vb->setLayout(layout);
+		}
+
+		va->addVertexBuffer(vb);
+
+		dg::graphics::IndexBuffer* ib = new dg::graphics::IndexBuffer(indices, 3);
+		va->setIndexBuffer(ib);
+
+		shader = new dg::graphics::Shader("res/shaders/test_2.shader");
+
+		// Blue square
+
+		float square_vertices[3 * 4] = {
+			-0.75f, -0.75f, 0.0f,
+			0.75f, -0.75f, 0.0f,
+			0.75f,  0.75f, 0.0f,
+			-0.75f,  0.75f, 0.0f
+		};
+		unsigned int square_indices[6] = { 0, 1, 2, 2, 3, 0 };
+
+
+		square_va = new dg::graphics::VertexArray;
+
+		dg::graphics::VertexBuffer* square_vb = new dg::graphics::VertexBuffer(square_vertices, sizeof(square_vertices));
+
+		{
+			dg::graphics::BufferLayout layout = {
+				{ dg::graphics::ShaderDataType::FLOAT3, "position" }
+			};
+
+			square_vb->setLayout(layout);
+		}
+
+		square_va->addVertexBuffer(square_vb);
+
+		dg::graphics::IndexBuffer* square_ib = new dg::graphics::IndexBuffer(square_indices, 6);
+		square_va->setIndexBuffer(square_ib);
+
+		blue_shader = new dg::graphics::Shader("res/shaders/blue_square.shader");
 	}
 
 	void onUpdate(float delta_time)
-	{
-		// game logic update
+	{	
+		// update other systems (e.g. physics system) (maybe not here)
+
+
+		dg::graphics::Clear({ 0.1f, 0.1f, 0.1f, 1.0f });
+
+		camera.setPosition({ 0.3f, 0.3f, 0.0f });
+		camera.setRotation(-45.0f);
+
+		dg::graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
+
+		dg::graphics::Renderer::SubmitMesh(blue_shader, square_va);
+		dg::graphics::Renderer::SubmitMesh(shader, va);
+
+		dg::graphics::Renderer::EndScene();
+
+		// will be called in the second thread
+		//Renderer::flush();
 	}
 
 	void onDestroy()
