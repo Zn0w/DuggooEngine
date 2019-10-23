@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "gtc/matrix_transform.hpp"
+
 #include "src/app/application.h"
 #include "src/input/keycodes.h"
 #include "src/input/mouse_button_codes.h"
@@ -17,15 +19,17 @@ private:
 	float camera_rotation = 0.0f;
 	const float camera_move_speed = 1.0f;
 	const float camera_rotation_speed = 2.0f;
+
 	dg::graphics::VertexArray* va;			// Triangle va
 	dg::graphics::VertexArray* square_va;	// Square va
+
 	dg::graphics::Shader* shader;
 	dg::graphics::Shader* blue_shader;
 
 public:
 	TestApplication()
 		: Application(dg::graphics::WindowProperties(1280, 720, true, false, "Test Application"), dg::app::OPENGL_2D), camera(-1.6f, 1.6f, -0.9f, 0.9f),
-		  camera_position(0.0f, 0.0f, 0.0f)
+		  camera_position(0.0f, 0.0f, 0.0f)		// not needed in the newer glm versions
 	{}
 
 	void onInit()
@@ -95,7 +99,7 @@ public:
 	void onUpdate(float delta_time)
 	{	
 		// update other systems (e.g. physics system) (maybe not here)
-		printf("%.2f\n", 1 / delta_time);
+
 
 		if (input.isKeyPressed(DG_KEY_A))		// left
 			camera_position.x -= camera_move_speed * delta_time;
@@ -120,7 +124,18 @@ public:
 
 		dg::graphics::Renderer::BeginScene(camera);	// will take SceneSettings(camera, lights, environment) as an argument
 
-		dg::graphics::Renderer::SubmitMesh(blue_shader, square_va);
+		// grid of 20x20 small blue squares
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		for (int y = 0; y < 20; y++)
+		{
+			for (int x = 0; x < 20; x++)
+			{
+				glm::vec3 pos(x * 0.16f, y * 0.16f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+				dg::graphics::Renderer::SubmitMesh(blue_shader, square_va, transform);
+			}
+		}
+
 		dg::graphics::Renderer::SubmitMesh(shader, va);
 
 		dg::graphics::Renderer::EndScene();

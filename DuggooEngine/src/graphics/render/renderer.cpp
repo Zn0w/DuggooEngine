@@ -33,12 +33,13 @@ namespace dg { namespace graphics {
 	
 	}
 	
-	void Renderer::SubmitMesh(Shader* shader, VertexArray* va)
+	void Renderer::SubmitMesh(Shader* shader, VertexArray* va, const glm::mat4& transform)
 	{
 		// TODO: Submit into render command queue
 
 		shader->bind();
 		shader->uploadUniformMat4f("u_ViewProjection", scene_data->viewprojection_matrix);
+		shader->uploadUniformMat4f("u_Transform", transform);
 
 		va->bind();
 		DrawIndexed(va);  // for test

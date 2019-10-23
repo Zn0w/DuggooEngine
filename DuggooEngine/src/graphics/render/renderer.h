@@ -21,7 +21,7 @@ namespace dg { namespace graphics {
 	public:
 		static void BeginScene(OrthographicCamera& camera);
 		static void EndScene();
-		static void SubmitMesh(Shader* shader, VertexArray* va);
+		static void SubmitMesh(Shader* shader, VertexArray* va, const glm::mat4& transform = glm::mat4(1.0f));
 	private:
 		static SceneData* scene_data;
 	};
